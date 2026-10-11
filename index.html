@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en-IN" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.className = 'js';</script>
+<title>Ray2Volt 3D | 3D plant viewers for C&amp;I solar EPCs</title>
+<meta name="description" content="Every EPC sends a PDF. Send a 3D plant. A live 3D viewer of your C&amp;I solar project for your client, in 3–5 working days, from ₹4,999.">
+<link rel="canonical" href="https://3d.ray2voltsolar.com/">
+<meta name="theme-color" content="#0A0F1D">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ray2Volt 3D">
+<meta property="og:locale" content="en_IN">
+<meta property="og:title" content="Every EPC sends a PDF. Send a 3D plant.">
+<meta property="og:description" content="A live 3D viewer of your C&amp;I solar project, ready to share with your client. 3–5 working days · from ₹4,999.">
+<meta property="og:url" content="https://3d.ray2voltsolar.com/">
+<meta property="og:image" content="https://ray2voltsolar.github.io/ray2volt-3d/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ray2Volt 3D: Every EPC sends a PDF. Send a 3D plant. 3–5 working days, from ₹4,999.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Every EPC sends a PDF. Send a 3D plant.">
+<meta name="twitter:description" content="A live 3D viewer of your C&amp;I solar project, ready to share with your client. 3–5 working days · from ₹4,999.">
+<meta name="twitter:image" content="https://ray2voltsolar.github.io/ray2volt-3d/og-image.png">
+<meta name="twitter:image:alt" content="Ray2Volt 3D: Every EPC sends a PDF. Send a 3D plant. 3–5 working days, from ₹4,999.">
+
+<!-- Fonts: the same Google Fonts request as ray2voltsolar.com (Google Sans Flex headings, Assistant body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400..800&amp;family=Assistant:wght@400..800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400..800&amp;family=Assistant:wght@400..800&amp;display=swap" rel="stylesheet"></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://3d.ray2voltsolar.com/#organization",
+      "name": "Ray2Volt 3D",
+      "url": "https://3d.ray2voltsolar.com/",
+      "logo": "https://ray2voltsolar.github.io/ray2volt-3d/icon-512.png",
+      "image": "https://ray2voltsolar.github.io/ray2volt-3d/og-image.png",
+      "email": "3d@ray2voltsolar.com",
+      "telephone": "+91 96660 68140",
+      "description": "Hosted, interactive 3D web viewers of C&I solar projects, made for solar EPCs and installers to share with their clients.",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Ray2Volt Solar",
+        "url": "https://ray2voltsolar.com/"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+91 96660 68140",
+        "email": "3d@ray2voltsolar.com",
+        "areaServed": "IN",
+        "availableLanguage": ["English"]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://3d.ray2voltsolar.com/#service",
+      "name": "Interactive 3D solar plant viewer",
+      "serviceType": "3D visualisation of C&I solar projects",
+      "description": "One hosted, interactive 3D web viewer per C&I solar project, built from the EPC's PV layout, equipment list, site location and photos. Ready in 3–5 working days after complete inputs.",
+      "provider": { "@id": "https://3d.ray2voltsolar.com/#organization" },
+      "audience": { "@type": "BusinessAudience", "audienceType": "Solar EPCs and installers" },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "offers": {
+        "@type": "Offer",
+        "description": "Starting at ₹4,999. Fixed price that depends on site size.",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 4999,
+          "priceCurrency": "INR"
+        },
+        "url": "https://3d.ray2voltsolar.com/#pricing"
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+/* Ray2Volt 3D landing page. Dark theme only. Tokens mirror the dark tokens of the
+   Ray2Volt Solar website (theme.css, section 1); components mirror home.css. */
+:root {
+  --bg: #0A0F1D;
+  --ink: #FFFFFF;
+  --body: rgba(255, 255, 255, 0.9);
+  --muted: rgba(226, 232, 240, 0.72);
+  --surface: rgba(15, 23, 42, 0.58);
+  --surface-strong: rgba(9, 14, 28, 0.88);
+  --surface-hover: rgba(18, 28, 50, 0.8);
+  --panel: rgba(11, 18, 34, 0.72);
+  --subtle: rgba(255, 255, 255, 0.025);
+  --line: rgba(148, 163, 184, 0.14);
+  --line-strong: rgba(148, 163, 184, 0.24);
+  --gold: #FFB300;
+  --gold-ink: #FCD34D;
+  --on-gold: #1A1A1A;
+  --sky: #7DD3FC;
+  --green: #34D399;
+  --wa: #25D366;
+  --wa-ink: #052E16;
+  --tile-bg: rgba(56, 189, 248, 0.1);
+  --tile-line: rgba(56, 189, 248, 0.24);
+  --gold-tile-bg: rgba(255, 179, 0, 0.12);
+  --gold-tile-line: rgba(255, 179, 0, 0.3);
+  --success-bg: rgba(52, 211, 153, 0.1);
+  --success-line: rgba(52, 211, 153, 0.3);
+  --error: #FCA5A5;
+  --error-bg: rgba(248, 113, 113, 0.1);
+  --error-line: rgba(248, 113, 113, 0.35);
+  --note-bg: rgba(255, 179, 0, 0.07);
+  --eyebrow-bg: rgba(255, 179, 0, 0.07);
+  --eyebrow-line: rgba(255, 179, 0, 0.28);
+  --ghost-bg: rgba(255, 255, 255, 0.04);
+  --ghost-bg-hover: rgba(255, 255, 255, 0.09);
+  --ghost-line: rgba(255, 255, 255, 0.2);
+  --field-bg: rgba(15, 23, 42, 0.9);
+  --field-line: #64748B;          /* about 3.8:1 against the field and the form card (WCAG 1.4.11 needs 3:1) */
+  --field-line-hover: #94A3B8;
+  --placeholder: rgba(226, 232, 240, 0.62);
+  --float-bg: rgba(10, 15, 29, 0.8);
+  --footer-bg: #070B16;
+  --grid: rgba(56, 189, 248, 0.16);
+  --step-stroke: rgba(148, 163, 184, 0.35);
+  --chevron-bg: #0E1628;
+  --chevron-line: rgba(148, 163, 184, 0.45);
+  --hover-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.8);
+  --float-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.75);
+  --form-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.85);
+  --frame-shadow: 0 40px 80px -32px rgba(0, 0, 0, 0.8), 0 0 0 10px rgba(255, 255, 255, 0.025);
+  --radius: 20px;
+  --font-heading: 'Google Sans', 'Google Sans Flex', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Assistant', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --gutter: 1rem;
+  --header-h: 56px;
+  color-scheme: dark;
+}
+@media (min-width: 480px) { :root { --gutter: 1.5rem; } }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 88px; }
+/* Phones (upright or sideways) have no fixed header, so an anchor jump only needs a small gap at the top;
+   the floating WhatsApp button needs room at the bottom */
+@media (max-width: 767px), (max-height: 500px) { html { scroll-padding-top: 12px; scroll-padding-bottom: 84px; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+html, body { overflow-x: clip; }
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--body);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Flat blueprint grid behind the top of the page, as on ray2voltsolar.com */
+body::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: max(100vh, 640px);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center top;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: radial-gradient(ellipse 120% 60% at 50% 0%, #000 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse 120% 60% at 50% 0%, #000 30%, transparent 80%);
+}
+@media (min-width: 768px) { body::after { background-size: 44px 44px; } }
+body > * { position: relative; z-index: 1; }
+
+img, svg, video { display: block; max-width: 100%; }
+img, video { height: auto; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--ink); text-wrap: balance; }
+h1 { font-size: clamp(2.125rem, 1.45rem + 2.9vw, 3.25rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; }
+h2 { font-size: clamp(1.625rem, 1.2rem + 1.5vw, 2.25rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 0.75rem; }
+h3 { font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; }
+p { text-wrap: pretty; }
+strong { color: var(--ink); font-weight: 700; }
+
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip-link { position: absolute; left: 1rem; top: -100px; z-index: 2000; padding: 0.75rem 1rem; border-radius: 10px; background: var(--gold); color: var(--on-gold); font-weight: 700; }
+.skip-link:focus { top: 1rem; }
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 max(var(--gutter), env(safe-area-inset-right)) 0 max(var(--gutter), env(safe-area-inset-left)); }
+.nw { white-space: nowrap; }
+
+.icon { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.icon--sm { width: 16px; height: 16px; stroke-width: 2; }
+.icon--fill { fill: currentColor; stroke: none; }
+
+/* ---------- Buttons (site-wide .btn from ray2voltsolar.com) ---------- */
+.btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.8125rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.2;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-lg { min-height: 54px; padding: 0.9375rem 1.75rem; font-size: 1.0625rem; }
+.btn-block { width: 100%; }
+.btn-primary {
+  background: linear-gradient(135deg, #FFB300 0%, #FFD54F 50%, #F9A825 100%);
+  background-size: 200% 200%;
+  color: var(--on-gold);
+  box-shadow: 0 4px 20px rgba(255, 179, 0, 0.35);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255, 179, 0, 0.5); }
+.btn-wa { background: var(--wa); color: var(--wa-ink); box-shadow: 0 4px 22px rgba(37, 211, 102, 0.28); }
+.btn-wa:hover { background: #3BE07A; transform: translateY(-2px); }
+.btn-ghost { background: var(--ghost-bg); color: var(--ink); border-color: var(--ghost-line); }
+.btn-ghost:hover { background: var(--ghost-bg-hover); border-color: var(--gold); transform: translateY(-2px); }
+.btn[disabled] { opacity: 0.7; cursor: progress; transform: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .btn-primary { animation: btnShimmer 3s ease infinite; }
+  @keyframes btnShimmer { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+}
+
+/* ---------- Header: the website's floating pill ---------- */
+.header {
+  position: absolute;
+  z-index: 1000;
+  top: max(10px, env(safe-area-inset-top));
+  left: max(10px, env(safe-area-inset-left));
+  right: max(10px, env(safe-area-inset-right));
+  border: 1px solid rgba(229, 231, 235, 0.6);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; height: var(--header-h); padding: 0 0.5rem 0 0.875rem; }
+.logo { display: flex; align-items: center; flex: none; min-height: 44px; }
+.logo img { height: clamp(24px, 6.4vw, 30px); width: auto; }
+.nav-menu { display: none; align-items: center; gap: 0.125rem; margin-left: auto; }
+.nav-menu a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 0.75rem;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #374151;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.nav-menu a:hover { color: #0369A1; background: rgba(3, 169, 244, 0.08); }
+.nav-wa { min-height: 44px; padding: 0.5rem 1.125rem; font-size: 0.9375rem; box-shadow: none; }
+.nav-wa .nav-wa__label { display: none; }
+.nav-wa { flex: none; width: 44px; padding: 0; }
+.header :focus-visible { outline-color: #0277BD; }
+@media (min-width: 420px) {
+  .nav-wa { width: auto; padding: 0.5rem 1rem; }
+  .nav-wa .nav-wa__label { display: inline; }
+}
+@media (min-width: 768px) {
+  .header { position: fixed; top: max(1rem, env(safe-area-inset-top)); left: max(1.5rem, env(safe-area-inset-left)); right: max(1.5rem, env(safe-area-inset-right)); }
+  .nav { padding: 0 0.625rem 0 1.25rem; }
+  .logo img { height: 32px; }
+}
+/* Phones held sideways (wide but short): a fixed 74 px bar would take a fifth of the screen, so the header scrolls
+   away as it does on phones, and the floating WhatsApp button takes over (see .wa-fab) */
+@media (min-width: 768px) and (max-height: 500px) {
+  .header { position: absolute; }
+}
+@media (min-width: 1000px) {
+  .nav-menu { display: flex; }
+  .nav { gap: 1rem; }
+}
+@media (min-width: 1000px) and (max-width: 1099px) {
+  .nav-menu a { padding: 0 0.5rem; }
+  .nav { gap: 0.75rem; }
+}
+
+/* ---------- Section scaffolding ---------- */
+.section { padding: 3.5rem 0; }
+@media (min-width: 768px) { .section { padding: 5rem 0; } }
+.section + .section { padding-top: 0; }
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.kicker::before { content: ''; width: 18px; height: 2px; border-radius: 2px; background: currentColor; }
+.section-head { max-width: 680px; margin-bottom: 2rem; }
+.section-head p:not(.kicker) { color: var(--muted); font-size: 1.0625rem; }
+.tile {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  color: var(--sky);
+  background: var(--tile-bg);
+  border: 1px solid var(--tile-line);
+}
+.tile--gold { color: var(--gold-ink); background: var(--gold-tile-bg); border-color: var(--gold-tile-line); }
+.card {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+}
+
+/* ---------- Hero ---------- */
+.hero { padding: 5.75rem 0 3rem; }
+@media (min-width: 768px) { .hero { padding: 8.5rem 0 4.5rem; } }
+@media (min-width: 768px) and (max-height: 500px) { .hero { padding-top: 6.25rem; } }
+/* Phones: the gap above the demos belongs to the hero, so "Try a live demo" lands on the demos heading itself and
+   the first "Open the live 3D viewer" button is on screen even at 360x640 (same total gap as before) */
+@media (max-width: 767px) {
+  .hero { padding-bottom: 6.5rem; }
+  .hero + #demos { padding-top: 0; }
+  #demos .section-head { margin-bottom: 1.25rem; }
+}
+.hero__grid { display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 960px) { .hero__grid { grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr); gap: 4rem; } }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1.125rem;
+  padding: 0.375rem 0.875rem 0.375rem 0.75rem;
+  border: 1px solid var(--eyebrow-line);
+  border-radius: 999px;
+  background: var(--eyebrow-bg);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--gold-ink);
+}
+.eyebrow__dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.18); }
+/* Very narrow phones: two clean lines without the separator, instead of a wrap after a dangling dot (as .offer) */
+@media (max-width: 359px) {
+  .eyebrow { border-radius: 14px; padding-top: 0.4375rem; padding-bottom: 0.4375rem; }
+  .eyebrow__text > span { display: block; }
+  .eyebrow__text > .eyebrow__sep { display: none; }
+}
+.hero h1 { margin-bottom: 1rem; }
+.hero h1 span { display: block; color: var(--gold); }
+.hero__lead { max-width: 34rem; margin-bottom: 1.25rem; font-size: 1.0625rem; line-height: 1.6; color: var(--muted); }
+@media (min-width: 768px) { .hero__lead { font-size: 1.1875rem; margin-bottom: 1.5rem; } }
+.offer {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.625rem 1.125rem;
+  border: 1px solid rgba(255, 179, 0, 0.45);
+  border-radius: 999px;
+  background: rgba(255, 179, 0, 0.08);
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.offer__dot { color: var(--gold); }
+.offer__price { color: var(--gold-ink); }
+@media (min-width: 768px) { .offer { font-size: 1.1875rem; padding: 0.75rem 1.375rem; } }
+/* Very narrow phones: two clean lines instead of a wrapped pill with a dangling dot */
+@media (max-width: 359px) {
+  .offer { display: inline-block; border-radius: 16px; }
+  .offer > span { display: block; }
+  .offer > .offer__dot { display: none; }
+}
+.hero__actions { display: grid; gap: 0.75rem; }
+@media (min-width: 480px) { .hero__actions { display: flex; flex-wrap: wrap; gap: 0.875rem; } }
+.hero__actions .btn { width: 100%; }
+@media (min-width: 480px) { .hero__actions .btn { width: auto; } }
+.assurances { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: 1.25rem; }
+.assurances li { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9375rem; color: var(--body); }
+.assurances .icon { width: 16px; height: 16px; stroke-width: 2.5; color: var(--green); }
+
+/* Hero visual: the flat PDF behind, the live 3D viewer in front */
+.hero__visual { position: relative; padding: 1.75rem 0 0 1.25rem; }
+@media (min-width: 600px) { .hero__visual { padding: 2.5rem 0 0 3rem; } }
+.hero__pdf {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 32%;
+  max-width: 190px;
+  transform: rotate(-8deg);
+  border-radius: 8px;
+  box-shadow: 0 24px 40px -18px rgba(0, 0, 0, 0.85);
+}
+.hero__screen {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 24px;
+  background: #101a2c;
+  box-shadow: var(--frame-shadow);
+  aspect-ratio: 5 / 4;
+}
+.hero__screen img, .hero__screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* The loop sits 1px inside the poster, so its first frame is never a larger LCP candidate than the poster;
+   the 2px inner bezel below hides that edge. */
+.hero__screen video { inset: 1px; width: calc(100% - 2px); height: calc(100% - 2px); }
+.hero__screen::after { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: 23px; box-shadow: inset 0 0 0 2px #101a2c; pointer-events: none; }
+.hero__video { opacity: 0; transition: opacity 0.5s ease; }
+.hero__video.is-playing { opacity: 1; }
+.chip {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(10, 15, 29, 0.82);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.chip--rec { top: 0.75rem; right: 0.75rem; }
+.chip--rec .icon { width: 15px; height: 15px; color: var(--sky); }
+.chip--label { left: 0.75rem; bottom: 0.75rem; max-width: calc(100% - 1.5rem); color: var(--body); font-weight: 500; }
+@media (max-width: 359px) {
+  .chip { font-size: 0.75rem; padding: 0.25rem 0.625rem; gap: 0.375rem; }
+  .chip--rec { top: 0.5rem; right: 0.5rem; }
+  .chip--label { left: 0.5rem; bottom: 0.5rem; max-width: calc(100% - 1rem); }
+}
+/* The footage is not interactive: a tap on it goes to the live demos (pointer users only; the hero has a real button) */
+.hero__screen-link { position: absolute; inset: 0; z-index: 3; border-radius: 24px; }
+.hero__screen-link:hover ~ .chip--label, .hero__screen-link:focus-visible ~ .chip--label { border-color: var(--gold); color: var(--ink); }
+.float {
+  position: absolute;
+  z-index: 2;
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 260px;
+  padding: 0.75rem 1rem 0.75rem 0.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: var(--float-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--float-shadow);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.float strong { display: block; font-family: var(--font-heading); font-size: 0.9375rem; }
+.float--a { right: -1rem; bottom: 3.5rem; }
+@media (min-width: 1100px) { .float { display: flex; } }
+@media (prefers-reduced-motion: no-preference) {
+  .float { animation: floatY 7s ease-in-out infinite; }
+  @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+}
+
+/* ---------- Live demos ---------- */
+.demos { display: grid; gap: 1rem; }
+@media (min-width: 768px) { .demos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; } }
+.demo { display: flex; flex-direction: column; overflow: hidden; }
+.demo__media { position: relative; display: block; aspect-ratio: 16 / 10; background: #101a2c; overflow: hidden; }
+.demo__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.demo:hover .demo__media img { transform: scale(1.03); }
+.demo__body { display: flex; flex-direction: column; flex: 1; padding: 1.25rem 1.25rem 1.375rem; }
+@media (min-width: 768px) { .demo__body { padding: 1.5rem 1.625rem 1.75rem; } }
+.demo__kind { margin-bottom: 0.375rem; font-family: var(--font-heading); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.01em; color: var(--sky); }
+.demo h3 { margin-bottom: 0.5rem; font-size: 1.3125rem; }
+.demo p:not(.demo__kind) { margin-bottom: 1.25rem; font-size: 0.9375rem; color: var(--muted); }
+.demo .btn { margin-top: auto; align-self: flex-start; }
+@media (max-width: 479px) { .demo .btn { align-self: stretch; } }
+.demo-tip { display: flex; gap: 0.625rem; align-items: flex-start; margin-top: 1rem; font-size: 0.9375rem; color: var(--muted); }
+.demo-tip .icon { margin-top: 0.125rem; color: var(--gold-ink); }
+
+/* ---------- How it works ---------- */
+.steps { display: grid; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.step { position: relative; padding: 1.375rem 1.375rem 1.5rem; border-top: 1px solid var(--line); }
+.step:first-child { border-top: 0; }
+.step__num {
+  position: absolute;
+  top: 1.125rem;
+  right: 1.25rem;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--step-stroke);
+}
+.step h3 { margin: 0.875rem 0 0.25rem; font-size: 1.0625rem; }
+.step p { font-size: 0.9375rem; color: var(--muted); }
+.step p strong { color: var(--gold-ink); }
+@media (min-width: 768px) {
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .step { padding: 1.5rem 1.5rem 1.75rem; border-top: 0; border-left: 1px solid var(--line); }
+  .step:first-child { border-left: 0; }
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 2.45rem;
+    right: -6px;
+    width: 11px;
+    height: 11px;
+    border-top: 1px solid var(--chevron-line);
+    border-right: 1px solid var(--chevron-line);
+    background: var(--chevron-bg);
+    transform: rotate(45deg);
+  }
+}
+
+/* ---------- What we need ---------- */
+.inputs { display: grid; gap: 0.75rem; counter-reset: input; }
+@media (min-width: 768px) { .inputs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.875rem; } }
+.input { display: flex; gap: 0.875rem; padding: 1.125rem 1.125rem 1.25rem; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.input h3 { margin-bottom: 0.25rem; font-size: 1rem; }
+.input h3::before { counter-increment: input; content: counter(input) '. '; color: var(--gold-ink); }
+.input p { font-size: 0.9375rem; line-height: 1.55; color: var(--muted); }
+.input p + p { margin-top: 0.375rem; }
+.input--wide { grid-column: 1 / -1; }
+.inputs-extra { display: flex; align-items: center; gap: 0.875rem; margin-top: 0.75rem; padding: 1rem 1.125rem; border: 1px dashed var(--line-strong); border-radius: 16px; }
+@media (min-width: 768px) { .inputs-extra { margin-top: 0.875rem; } }
+.inputs-extra p { font-size: 0.9375rem; line-height: 1.55; color: var(--muted); }
+.not-offered {
+  display: flex;
+  gap: 0.875rem;
+  margin-top: 1rem;
+  padding: 1.125rem 1.125rem 1.25rem;
+  border: 1px solid var(--error-line);
+  border-left-width: 3px;
+  border-radius: 16px;
+  background: var(--error-bg);
+}
+.not-offered .tile { color: var(--error); background: rgba(248, 113, 113, 0.12); border-color: var(--error-line); }
+.not-offered h3 { margin-bottom: 0.25rem; font-size: 1rem; }
+.not-offered p { font-size: 0.9375rem; line-height: 1.55; color: var(--body); }
+
+/* ---------- Viewer features ---------- */
+.features-title { display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.875rem; font-size: 1.125rem; }
+/* The second group's heading and its note sit on one line where they fit; the note is a separate paragraph, so it is
+   not read as part of the heading or of the list's name */
+.features-head { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.625rem; row-gap: 0.125rem; margin: 2rem 0 0.875rem; }
+.features-head .features-title { margin: 0; }
+.features-note { font-size: 0.9375rem; font-weight: 500; color: var(--muted); }
+.features { display: grid; gap: 0.75rem; }
+@media (min-width: 600px) { .features { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1040px) { .features { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.875rem; } .features--extra { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Phones: icon-left rows, like "What we need"; from 600 px: cards with the icon on top */
+.feature { display: flex; gap: 0.875rem; padding: 1rem 1.125rem 1.125rem; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+@media (min-width: 600px) { .feature { flex-direction: column; gap: 0.75rem; padding: 1.25rem; border-radius: var(--radius); } }
+.feature h4 { margin-bottom: 0.25rem; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; }
+.feature p { font-size: 0.9375rem; line-height: 1.55; color: var(--muted); }
+.features--extra .feature { border-style: dashed; border-color: var(--line-strong); background: transparent; }
+.fineprint { display: flex; gap: 0.625rem; align-items: flex-start; margin-top: 1.25rem; font-size: 0.875rem; color: var(--muted); }
+.fineprint .icon { margin-top: 0.125rem; color: var(--sky); }
+
+/* ---------- Pricing ---------- */
+.price-card {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.75rem 1.375rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 28px;
+  background: var(--panel);
+  box-shadow: var(--form-shadow);
+}
+.price-card::before { content: ''; position: absolute; top: -1px; left: 1.75rem; right: 1.75rem; height: 2px; border-radius: 2px; background: var(--gold); }
+@media (min-width: 768px) { .price-card { padding: 2.5rem; } }
+@media (min-width: 900px) { .price-card { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; gap: 2.5rem; } }
+.price { font-family: var(--font-heading); color: var(--ink); line-height: 1.1; margin: 0.25rem 0 0.75rem; }
+.price small { display: block; margin-bottom: 0.25rem; font-size: 0.9375rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.price b { font-size: clamp(2.75rem, 2rem + 3vw, 3.75rem); font-weight: 750; letter-spacing: -0.04em; color: var(--gold); }
+.price-list { display: grid; gap: 0.625rem; margin: 1rem 0 1.5rem; }
+.price-list li { display: flex; gap: 0.625rem; align-items: flex-start; font-size: 1rem; color: var(--body); }
+.price-list .icon { margin-top: 0.1875rem; width: 18px; height: 18px; stroke-width: 2.25; color: var(--green); }
+.no-haggle {
+  padding: 1rem 1.125rem;
+  border: 1px solid var(--gold-tile-line);
+  border-radius: 16px;
+  background: var(--note-bg);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--body);
+}
+.no-haggle strong { color: var(--gold-ink); }
+.price-card__visual { display: grid; justify-items: center; gap: 1rem; }
+.price-card__visual img { width: min(220px, 60%); height: auto; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.5)); }
+.price-card__actions { display: grid; gap: 0.75rem; width: 100%; }
+.price-card__actions .btn { padding-left: 1rem; padding-right: 1rem; }
+/* Single column (below 900 px): the decorative cube goes, so the buttons follow the price straight away */
+@media (max-width: 899px) {
+  .price-card__visual { justify-items: start; }
+  .price-card__visual img { display: none; }
+  .price-card__actions { max-width: 420px; }
+}
+
+/* ---------- FAQ ---------- */
+.faq { display: grid; gap: 0.625rem; max-width: 860px; }
+.faq details { border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.faq details[open] { border-color: var(--line-strong); background: var(--surface-strong); }
+.faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 56px;
+  padding: 0.875rem 1.125rem;
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 650;
+  line-height: 1.35;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: '';
+  flex: none;
+  width: 12px;
+  height: 12px;
+  margin-right: 0.25rem;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.faq details[open] summary::after { transform: translateY(3px) rotate(225deg); }
+.faq summary:focus-visible { outline-offset: -2px; border-radius: 16px; }
+.faq__a { padding: 0 1.125rem 1.125rem; font-size: 1rem; color: var(--muted); }
+.faq__a p + p { margin-top: 0.5rem; }
+.faq__a a { color: var(--sky); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Enquiry ---------- */
+.enquire { display: grid; gap: 2rem; }
+@media (min-width: 960px) { .enquire { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 3rem; align-items: start; } }
+.enquire__intro p:not(.kicker) { color: var(--muted); font-size: 1.0625rem; }
+.contact-list { display: grid; gap: 0.75rem; margin-top: 1.5rem; }
+.contact-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  min-height: 64px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.contact-list a:hover { border-color: rgba(255, 179, 0, 0.4); background: var(--surface-hover); }
+.contact-list small { display: block; font-size: 0.8125rem; color: var(--muted); }
+.contact-list b { display: block; font-family: var(--font-heading); font-size: 1.0625rem; color: var(--ink); overflow-wrap: anywhere; }
+.tile--wa { color: var(--wa); background: rgba(37, 211, 102, 0.1); border-color: rgba(37, 211, 102, 0.3); }
+.form-card {
+  position: relative;
+  padding: 1.375rem 1.125rem 1.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 24px;
+  background: var(--surface-strong);
+  box-shadow: var(--form-shadow);
+}
+@media (min-width: 480px) { .form-card { padding: 1.75rem; } }
+.form-card::before { content: ''; position: absolute; top: -1px; left: 1.75rem; right: 1.75rem; height: 2px; border-radius: 2px; background: var(--gold); }
+.form-card__head { padding-bottom: 1rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
+.form-card__head h3 { font-size: 1.1875rem; margin-bottom: 0.25rem; }
+.form-card__head p { font-size: 0.875rem; color: var(--muted); }
+.fields { display: grid; gap: 1rem; }
+@media (min-width: 600px) { .fields { grid-template-columns: repeat(2, minmax(0, 1fr)); } .field--wide { grid-column: 1 / -1; } }
+.field label { display: block; margin-bottom: 0.375rem; font-size: 0.875rem; font-weight: 600; color: var(--ink); }
+.field label .req { color: var(--gold-ink); }
+.field label .opt { font-weight: 500; color: var(--muted); }
+.field input, .field textarea {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 0.6875rem 0.875rem;
+  border: 1px solid var(--field-line);
+  border-radius: 10px;
+  background: var(--field-bg);
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field textarea { min-height: 110px; resize: vertical; }
+.field input::placeholder, .field textarea::placeholder { color: var(--placeholder); }
+.field input:hover, .field textarea:hover { border-color: var(--field-line-hover); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(255, 179, 0, 0.18); }
+.field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: var(--error); }
+.field__error { margin-top: 0.375rem; font-size: 0.8125rem; color: var(--error); }
+.field__error:empty { display: none; }
+.hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-card__head a { color: var(--sky); text-decoration: underline; text-underline-offset: 3px; }
+.form-actions { margin-top: 1.25rem; }
+.form-note { display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.5rem; margin-top: 0.5rem; font-size: 0.8125rem; color: var(--muted); }
+.form-note a { display: inline-flex; align-items: center; min-height: 44px; color: var(--sky); text-decoration: underline; text-underline-offset: 3px; }
+/* The live region stays rendered while empty (display:none would take it out of the accessibility tree) */
+.form-status:empty { margin: 0; padding: 0; border: 0; }
+.form-status { margin-top: 1rem; padding: 1rem 1.125rem; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--subtle); font-size: 0.9375rem; line-height: 1.55; color: var(--body); }
+/* Without JavaScript the form cannot validate or send, so it is replaced by the <noscript> contact note */
+.no-js #enquiry-form, .no-js [data-form-mode] { display: none; }
+.form-status--noscript { margin-top: 0; }
+.form-status:focus { outline: none; }
+.form-status--ok { border-color: var(--success-line); background: var(--success-bg); }
+.form-status--error { border-color: var(--error-line); background: var(--error-bg); }
+.form-status--note { border-color: var(--gold-tile-line); background: var(--note-bg); }
+.form-status__title { display: block; margin-bottom: 0.25rem; font-family: var(--font-heading); font-size: 1.0625rem; font-weight: 700; color: var(--ink); }
+.form-status a:not(.btn) { color: var(--sky); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+.form-status__actions { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-top: 0.875rem; }
+.form-status__actions .btn { min-height: 46px; padding: 0.625rem 1.125rem; font-size: 0.9375rem; }
+
+/* ---------- Footer ---------- */
+.footer { margin-top: 1rem; padding: 3rem 0 6.5rem; border-top: 1px solid var(--line); background: var(--footer-bg); color: rgba(226, 232, 240, 0.66); }
+@media (min-width: 768px) { .footer { padding: 3.5rem 0 3rem; } }
+.footer__grid { display: grid; gap: 2rem; }
+@media (min-width: 768px) { .footer__grid { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); } }
+.footer__logo { display: inline-block; padding: 0.625rem 0.875rem; border-radius: 14px; background: rgba(255, 255, 255, 0.94); }
+.footer__logo img { height: 28px; width: auto; }
+.footer__parent { margin-top: 1rem; font-size: 0.9375rem; }
+.footer a { transition: color 0.2s ease; }
+.footer__parent a, .footer__links a:hover, .footer__contact a:hover { color: var(--gold-ink); }
+.footer__parent a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; font-weight: 700; }
+.footer__parent:has(a) { margin-top: 0.5rem; }
+.footer__parent:has(a) + .footer__parent { margin-top: 0.25rem; }
+.footer h2 { margin-bottom: 0.75rem; font-size: 0.8125rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+.footer__links li a, .footer__contact li a { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; min-width: 44px; font-size: 0.9375rem; }
+.footer__bottom { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: 0.8125rem; color: var(--muted); }
+
+/* ---------- Floating WhatsApp button ---------- */
+.wa-fab {
+  position: fixed;
+  z-index: 900;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0 1.25rem 0 1rem;
+  border-radius: 999px;
+  background: var(--wa);
+  color: var(--wa-ink);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(5, 46, 22, 0.15);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+.wa-fab .icon { width: 24px; height: 24px; }
+.js .wa-fab:not(.is-shown) { opacity: 0; visibility: hidden; transform: translateY(12px); pointer-events: none; }
+/* Phones only: from 768 px the fixed header always shows its own WhatsApp button (except on short, sideways
+   phones, where the header scrolls away and this button takes over) */
+@media (min-width: 768px) and (min-height: 501px) { .wa-fab { display: none !important; } }
+@media print { .wa-fab, .header { display: none !important; } }
+
+/* ---------- Phones: body copy at 16 px ---------- */
+@media (max-width: 767px) {
+  .demo p:not(.demo__kind), .demo-tip, .step p, .input p, .not-offered p, .feature p, .no-haggle,
+  .assurances li, .price-list li, .form-status, .footer__parent, .footer__links li a, .footer__contact li a, .features-note, .inputs-extra p { font-size: 1rem; }
+  .fineprint, .form-note, .form-card__head p, .field label { font-size: 0.9375rem; }
+  .contact-list small { font-size: 0.875rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Icon set, referenced with <use href="#i-…"> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></symbol>
+  <symbol id="i-inverter" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="m13 7-3 5h4l-3 5"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
+  <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+  <symbol id="i-orbit" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/><circle cx="12" cy="12" r="2.5"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4V8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 5 3.5-5 3.5z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+</svg>
+
+<header class="header">
+  <nav class="nav" aria-label="Main">
+    <a class="logo" href="./" aria-label="Ray2Volt 3D home">
+      <picture>
+        <source srcset="assets/ray2volt-3d-logo-h64.webp 590w, assets/ray2volt-3d-logo-h128.webp 1180w" sizes="(min-width: 768px) 295px, 277px" type="image/webp">
+        <img src="assets/ray2volt-3d-logo-h64.png" alt="Ray2Volt 3D" width="590" height="64">
+      </picture>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="#demos">Live demos</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#inputs">What we need</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn btn-wa nav-wa" href="https://wa.me/919666068140?text=Hi%2C%20I%20want%20a%203D%20viewer%20for%20a%20___%20kW%20C%26I%20project" target="_blank" rel="noopener" aria-label="WhatsApp us on +91 96660 68140 (opens WhatsApp)">
+      <svg class="icon icon--fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="nav-wa__label">WhatsApp</span>
+    </a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- 1. Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span><span class="eyebrow__text"><span>For solar EPCs and installers</span><span class="eyebrow__sep"> · </span><span>C&amp;I projects</span></span></p>
+        <h1 id="hero-title">Every EPC sends a PDF. <span>Send a 3D plant.</span></h1>
+        <p class="hero__lead">We turn your PV layout into a live 3D model of the plant. Your client opens one link and explores it on their phone.</p>
+        <p class="offer"><span>3–5 working days</span> <span class="offer__dot">·</span> <span class="offer__price">from ₹4,999</span></p>
+        <div class="hero__actions">
+          <a class="btn btn-wa btn-lg" href="https://wa.me/919666068140?text=Hi%2C%20I%20want%20a%203D%20viewer%20for%20a%20___%20kW%20C%26I%20project" target="_blank" rel="noopener">
+            <svg class="icon icon--fill" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp us
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#demos">
+            <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>Try a live demo
+          </a>
+        </div>
+        <ul class="assurances">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Opens from one link</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Works on phones</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Fixed price</li>
+        </ul>
+      </div>
+
+      <div class="hero__visual">
+        <!-- The flat PDF every EPC sends: a generic layout sheet drawn in code -->
+        <svg class="hero__pdf" viewBox="0 0 210 297" aria-hidden="true" focusable="false">
+          <defs>
+            <pattern id="pv-cells" width="9" height="13" patternUnits="userSpaceOnUse"><rect width="9" height="13" fill="#1F4E7A"/><path d="M0 .5H9M.5 0V13" stroke="#8FB8DA" stroke-width="1"/></pattern>
+          </defs>
+          <rect width="210" height="297" rx="6" fill="#F4F7FA"/>
+          <rect x="12" y="12" width="186" height="273" fill="none" stroke="#B8C4D2" stroke-width="1.5"/>
+          <rect x="22" y="22" width="52" height="26" rx="5" fill="#D93A3A"/>
+          <text x="48" y="41" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">PDF</text>
+          <path d="M86 30H170M86 41H140" stroke="#B8C4D2" stroke-width="4" stroke-linecap="round"/>
+          <rect x="24" y="60" width="162" height="156" fill="#E6ECF2" stroke="#7B8DA3" stroke-width="2" stroke-dasharray="6 4"/>
+          <rect x="34" y="72" width="142" height="26" fill="url(#pv-cells)"/>
+          <rect x="34" y="106" width="142" height="26" fill="url(#pv-cells)"/>
+          <rect x="34" y="140" width="142" height="26" fill="url(#pv-cells)"/>
+          <rect x="34" y="174" width="98" height="26" fill="url(#pv-cells)"/>
+          <rect x="146" y="176" width="22" height="22" fill="#9AA8B8"/>
+          <path d="M24 230H186M24 240H150" stroke="#B8C4D2" stroke-width="4" stroke-linecap="round"/>
+          <rect x="112" y="250" width="74" height="26" fill="none" stroke="#7B8DA3" stroke-width="1.5"/>
+          <path d="M112 259H186M140 250V276" stroke="#7B8DA3" stroke-width="1.5"/>
+        </svg>
+
+        <div class="hero__screen">
+          <!-- Hero media: the poster image is the page's own picture (and the LCP candidate). The muted loop of real
+               viewer captures (assets/hero-loop.mp4, built by tools/build-site-media.mjs) has no src until
+               assets/site.js gives it one after the page has loaded, and only without prefers-reduced-motion,
+               Save-Data or a 2G/3G connection. It fades in over the poster once it is actually playing. -->
+          <img class="hero__poster" src="assets/hero-poster.webp" width="720" height="576" fetchpriority="high" decoding="async"
+               alt="Footage from our live 3D viewers: a raised solar canopy on a water park roof in Visakhapatnam, then rooftop solar on three poultry-farm sheds in Kadapa">
+          <video class="hero__video" width="720" height="576" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback
+                 poster="assets/hero-poster.webp" data-src="assets/hero-loop.mp4" data-switch="3.45,7.25" aria-hidden="true" tabindex="-1"></video>
+          <a class="hero__screen-link" href="#demos" tabindex="-1" aria-hidden="true" title="Try the live demos"></a>
+          <span class="chip chip--rec"><svg class="icon" aria-hidden="true"><use href="#i-video"/></svg>Recorded in the live viewer</span>
+          <span class="chip chip--label" data-label-a="Water park, Visakhapatnam" data-label-b="Poultry farm, Kadapa">Water park, Visakhapatnam</span>
+        </div>
+        <div class="float float--a">
+          <span class="tile tile--gold"><svg class="icon" aria-hidden="true"><use href="#i-orbit"/></svg></span>
+          <span><strong>Orbit, zoom, tap</strong>Every module and inverter, on a phone or laptop</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Live demos -->
+  <section class="section" id="demos" aria-labelledby="demos-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">Live demos</p>
+        <h2 id="demos-title">Open a real C&amp;I plant in 3D</h2>
+        <p>Two real C&amp;I proposals in the same live 3D viewer your client would get. Each button opens it in a new tab.</p>
+      </div>
+      <div class="demos">
+        <article class="demo card">
+          <a class="demo__media" href="https://ray2voltsolar.github.io/arena-water-park-solar-3d/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/demo-waterpark.webp" width="720" height="450" loading="lazy" decoding="async"
+                 alt="3D model of a water park with slides, pools and a raised rooftop solar canopy">
+          </a>
+          <div class="demo__body">
+            <p class="demo__kind">Rooftop solar canopy · 145.5&nbsp;kWp</p>
+            <h3>Water park, Visakhapatnam</h3>
+            <p>A raised solar canopy over a busy roof where the slide queues start. 231 modules, one 125&nbsp;kW string inverter, net metered.</p>
+            <a class="btn btn-ghost" href="https://ray2voltsolar.github.io/arena-water-park-solar-3d/" target="_blank" rel="noopener">
+              Open the live 3D viewer<svg class="icon icon--sm" aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> for the water park in Visakhapatnam (opens in a new tab)</span>
+            </a>
+          </div>
+        </article>
+        <article class="demo card">
+          <a class="demo__media" href="https://ray2voltsolar.github.io/ar-poultry-solar-3d/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="assets/demo-poultry.webp" width="720" height="450" loading="lazy" decoding="async"
+                 alt="3D model of three long poultry sheds with solar modules along their roofs and feed silos between them">
+          </a>
+          <div class="demo__body">
+            <p class="demo__kind">Shed roofs · 471&nbsp;kWp</p>
+            <h3>Poultry farm, Kadapa</h3>
+            <p>673 modules on three EC broiler sheds, with one net-metered system and three open-access inverters feeding 11&nbsp;kV.</p>
+            <a class="btn btn-ghost" href="https://ray2voltsolar.github.io/ar-poultry-solar-3d/" target="_blank" rel="noopener">
+              Open the live 3D viewer<svg class="icon icon--sm" aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> for the poultry farm in Kadapa (opens in a new tab)</span>
+            </a>
+          </div>
+        </article>
+      </div>
+      <p class="demo-tip"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>Try this: drag to orbit, pinch to zoom, tap a module, then press play on the time bar to watch a day of sun and shadow.</span></p>
+    </div>
+  </section>
+
+  <!-- 3. How it works -->
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">How it works</p>
+        <h2 id="how-title">Three steps, one link</h2>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step__num" aria-hidden="true">01</span>
+          <span class="tile tile--gold"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></span>
+          <h3>Send your inputs</h3>
+          <p>Share the layout, equipment list, location and site photos on WhatsApp or by email.</p>
+        </li>
+        <li class="step">
+          <span class="step__num" aria-hidden="true">02</span>
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-cube"/></svg></span>
+          <h3>We build the 3D plant</h3>
+          <p>Ready in <strong class="nw">3–5 working days</strong> after we receive complete inputs.</p>
+        </li>
+        <li class="step">
+          <span class="step__num" aria-hidden="true">03</span>
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg></span>
+          <h3>Share the link with your client</h3>
+          <p>Your client opens it in the browser on a phone or laptop. Nothing to install.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4. What we need from you -->
+  <section class="section" id="inputs" aria-labelledby="inputs-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">What we need from you</p>
+        <h2 id="inputs-title">Five inputs. Complete inputs start the clock.</h2>
+        <p>The <span class="nw">3–5</span> working days start once we have inputs <span class="nw">1–4</span>, plus input 5 if your client wants their name and logo shown.</p>
+      </div>
+      <ul class="inputs">
+        <li class="input">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <div>
+            <h3>Site location</h3>
+            <p>A Google Maps pin, a KML file or the address.</p>
+          </div>
+        </li>
+        <li class="input">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg></span>
+          <div>
+            <h3>PV layout</h3>
+            <p>AutoCAD/DWG is best. A PDF, a PVsyst or HelioScope export, or a clear hand-drawn sketch with roof dimensions and panel rows also works.</p>
+            <p>A sketch may need one round of clarification.</p>
+          </div>
+        </li>
+        <li class="input">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-inverter"/></svg></span>
+          <div>
+            <h3>Equipment and capacity</h3>
+            <p>Module model and count, inverter model and count, and the DC/AC capacity.</p>
+          </div>
+        </li>
+        <li class="input">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg></span>
+          <div>
+            <h3>Site photos</h3>
+            <p>Phone photos are fine.</p>
+          </div>
+        </li>
+        <li class="input input--wide">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-tag"/></svg></span>
+          <div>
+            <h3>Client name and logo</h3>
+            <p>Only if your client wants them shown in the viewer.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="inputs-extra">
+        <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>
+        <p><strong>Optional:</strong> your string plan, SLD and design notes, if you want them shown in the viewer.</p>
+      </div>
+      <div class="not-offered" role="note" aria-labelledby="not-title">
+        <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></span>
+        <div>
+          <h3 id="not-title">What we don't do</h3>
+          <p>We don't design PV layouts from scratch. A roof and a kWp target alone are not enough. Send the layout your team has made, and we turn it into 3D.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. What the viewer includes -->
+  <section class="section" id="viewer" aria-labelledby="viewer-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">What the viewer includes</p>
+        <h2 id="viewer-title">More than a pretty render</h2>
+        <p>Six features come with every viewer. Two more show your own design documents, so they are added when you send them. Both live demos have all eight.</p>
+      </div>
+      <h3 class="features-title" id="viewer-every">In every viewer</h3>
+      <ul class="features" aria-labelledby="viewer-every">
+        <li class="feature">
+          <span class="tile tile--gold"><svg class="icon" aria-hidden="true"><use href="#i-cube"/></svg></span>
+          <div>
+            <h4>Your plant, in 3D</h4>
+            <p>The building, the roofs and every module row from your layout, with the site around it.</p>
+          </div>
+        </li>
+        <li class="feature">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-orbit"/></svg></span>
+          <div>
+            <h4>Orbit, zoom and tap</h4>
+            <p>Drag to orbit and pinch or scroll to zoom. Tap a module or inverter for its details from your equipment list.</p>
+          </div>
+        </li>
+        <li class="feature">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-video"/></svg></span>
+          <div>
+            <h4>One-tap camera views</h4>
+            <p>Jump to views such as the overview, the plan, the inverters and the grid connection.</p>
+          </div>
+        </li>
+        <li class="feature">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg></span>
+          <div>
+            <h4>Sun and shadows</h4>
+            <p>Pick a date and time, or play a whole day, and watch the shadows move across the array.</p>
+          </div>
+        </li>
+        <li class="feature">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span>
+          <div>
+            <h4>A guided tour</h4>
+            <p>A step-by-step tour that walks your client through the plant.</p>
+          </div>
+        </li>
+        <li class="feature">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <div>
+            <h4>Made for phones</h4>
+            <p>A layout built for phone screens as well as laptops. Your client can also save any view as a picture.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="features-head">
+        <h3 class="features-title" id="viewer-extra">Added when you send them</h3>
+        <p class="features-note">We show your design in 3D. We don't create it.</p>
+      </div>
+      <ul class="features features--extra" aria-labelledby="viewer-extra">
+        <li class="feature">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>
+          <div>
+            <h4>String plan and single-line diagram</h4>
+            <p>Your string plan and SLD, linked to the 3D model, plus your design notes.</p>
+          </div>
+        </li>
+        <li class="feature">
+          <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg></span>
+          <div>
+            <h4>Energy flow</h4>
+            <p>Animated power flow from the strings to the inverters and the grid, with <span class="nw">hour-by-hour</span> output estimates. Needs your string plan.</p>
+          </div>
+        </li>
+      </ul>
+      <p class="fineprint"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>Energy figures in the viewer are model estimates (a&nbsp;clear-day curve and a&nbsp;typical-year total) to help your client understand the plant. They are not a guarantee of generation.</span></p>
+    </div>
+  </section>
+
+  <!-- 6. Pricing -->
+  <section class="section" id="pricing" aria-labelledby="pricing-title">
+    <div class="container">
+      <div class="price-card">
+        <div>
+          <p class="kicker">Pricing</p>
+          <h2 id="pricing-title">One project. One 3D viewer. One fixed price.</h2>
+          <p class="price"><small>Starting at</small><b>₹4,999</b></p>
+          <ul class="price-list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A hosted, interactive 3D viewer of one project, on a link you share with your client</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Fixed price that depends on site size. Tell us the site size and we tell you the price.</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Ready in <span class="nw">3–5</span> working days after complete inputs</span></li>
+          </ul>
+          <p class="no-haggle"><strong>No negotiation, please.</strong> Our prices are fixed by site size, and we keep our time for serious, ready-to-go projects.</p>
+        </div>
+        <div class="price-card__visual">
+          <img src="assets/ray2volt-3d-cube.svg" width="220" height="220" loading="lazy" decoding="async" alt="">
+          <div class="price-card__actions">
+            <a class="btn btn-wa btn-lg btn-block" href="https://wa.me/919666068140?text=Hi%2C%20I%20want%20a%203D%20viewer%20for%20a%20___%20kW%20C%26I%20project" target="_blank" rel="noopener">
+              <svg class="icon icon--fill" aria-hidden="true"><use href="#i-wa"/></svg>Get your price on WhatsApp
+            </a>
+            <a class="btn btn-ghost btn-block" href="#enquire">Or send an enquiry</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="section-head">
+        <p class="kicker">FAQ</p>
+        <h2 id="faq-title">Questions EPCs ask</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Who is Ray2Volt 3D for?</summary>
+          <div class="faq__a"><p>Solar EPCs and installers who sell commercial and industrial (C&amp;I) projects. We work on C&amp;I projects only.</p></div>
+        </details>
+        <details>
+          <summary>What exactly do I get?</summary>
+          <div class="faq__a"><p>One hosted, interactive 3D web viewer of your project, on a link you send to your client. There is one product for now: no tiers or packages.</p><p>The string plan, single-line diagram and energy flow are added when your design documents include them. We don't do the electrical design.</p></div>
+        </details>
+        <details>
+          <summary>Does my client need to install an app?</summary>
+          <div class="faq__a"><p>No. The viewer opens in a web browser on a phone or a computer. <a href="#demos">Try a live demo</a> on your own phone.</p></div>
+        </details>
+        <details>
+          <summary>How fast is it ready?</summary>
+          <div class="faq__a"><p>3–5 working days after we receive complete inputs. If something is missing or unclear, the clock starts once we have it.</p></div>
+        </details>
+        <details>
+          <summary>We only have a hand-drawn sketch. Is that enough?</summary>
+          <div class="faq__a"><p>Yes, if it is clear and shows the roof dimensions and the panel rows. A sketch may need one round of clarification with you.</p></div>
+        </details>
+        <details>
+          <summary>Can you design the PV layout for us?</summary>
+          <div class="faq__a"><p>No. We build the 3D viewer from your layout; we don't design layouts from scratch. A roof and a kWp target alone are not enough.</p></div>
+        </details>
+        <details>
+          <summary>How is the price decided?</summary>
+          <div class="faq__a"><p>Prices start at ₹4,999. The price is fixed and depends on site size. Send us the site details on WhatsApp and we will tell you the price. We don't negotiate.</p></div>
+        </details>
+        <details>
+          <summary>Can the viewer show my client's name and logo?</summary>
+          <div class="faq__a"><p>Yes, if your client wants them shown. Send the name and logo with your other inputs.</p></div>
+        </details>
+        <details>
+          <summary>Can you white-label the viewer with our company's branding?</summary>
+          <div class="faq__a"><p>Not yet. White-label viewers are not offered at the moment.</p></div>
+        </details>
+        <details>
+          <summary>Are the energy numbers in the viewer a guarantee?</summary>
+          <div class="faq__a"><p>No. They are model estimates (a&nbsp;clear-day curve and a&nbsp;typical-year total) that help your client understand the plant. They are not a generation guarantee.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Enquiry form -->
+  <section class="section" id="enquire" aria-labelledby="enquire-title">
+    <div class="container enquire">
+      <div class="enquire__intro">
+        <p class="kicker">Enquire</p>
+        <h2 id="enquire-title">Tell us about your project</h2>
+        <p>WhatsApp is the quickest way to reach us. <span data-form-mode="web3forms">Prefer a form? Fill it in and we will get back to you.</span><span data-form-mode="whatsapp" hidden>Prefer a form? Fill it in and it opens WhatsApp with your details ready to send. Or email us at the address below.</span></p>
+        <ul class="contact-list">
+          <li>
+            <a href="https://wa.me/919666068140?text=Hi%2C%20I%20want%20a%203D%20viewer%20for%20a%20___%20kW%20C%26I%20project" target="_blank" rel="noopener">
+              <span class="tile tile--wa"><svg class="icon icon--fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+              <span><small>WhatsApp</small><b>+91 96660 68140</b></span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:3d@ray2voltsolar.com?subject=3D%20viewer%20enquiry">
+              <span class="tile"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+              <span><small>Email</small><b>3d@ray2voltsolar.com</b></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-card">
+        <div class="form-card__head">
+          <h3>Enquiry form</h3>
+          <p data-form-mode="web3forms">Fields marked <span aria-hidden="true">*</span><span class="sr-only">with a star</span> are required. This form takes no attachments. Send your layout and photos to <a href="mailto:3d@ray2voltsolar.com">3d@ray2voltsolar.com</a> or on WhatsApp.</p>
+          <p data-form-mode="whatsapp" hidden>Fields marked <span aria-hidden="true">*</span><span class="sr-only">with a star</span> are required. Sending opens WhatsApp with your details filled in, and you can add your layout and photos in the same chat. Prefer email? Write to <a href="mailto:3d@ray2voltsolar.com?subject=3D%20viewer%20enquiry">3d@ray2voltsolar.com</a>.</p>
+        </div>
+        <noscript><div class="form-status form-status--note form-status--noscript"><span class="form-status__title">Message us directly</span><p>This form needs JavaScript. Please WhatsApp us at <a href="https://wa.me/919666068140?text=Hi%2C%20I%20want%20a%203D%20viewer%20for%20a%20___%20kW%20C%26I%20project" target="_blank" rel="noopener">+91 96660 68140</a> or email <a href="mailto:3d@ray2voltsolar.com?subject=3D%20viewer%20enquiry">3d@ray2voltsolar.com</a> with your project size, location and inputs.</p></div></noscript>
+        <!-- No action attribute on purpose: assets/site.js sends the form with fetch() to data-endpoint, and only once a
+             real access key is in place. Without JavaScript the form is hidden and the <noscript> note above shows instead. -->
+        <form id="enquiry-form" method="POST" accept-charset="UTF-8" data-endpoint="https://api.web3forms.com/submit">
+          <!-- TODO(owner): create a free Web3Forms access key for 3d@ray2voltsolar.com at https://web3forms.com
+               and paste it over the placeholder value of access_key on the next line (a find-and-replace of the
+               placeholder across site/ is safe too: this is the only place it appears). While the value is empty or
+               still starts with "YOUR_", the page sends NOTHING to Web3Forms: the button reads "Send on WhatsApp"
+               and opens WhatsApp with the visitor's details filled in (email offered as well). With a real key, the
+               button reads "Send enquiry" and the form posts to Web3Forms, then shows
+               "Send your layout/photos to 3d@ray2voltsolar.com or on WhatsApp." -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="New Ray2Volt 3D enquiry">
+          <input type="hidden" name="from_name" value="Ray2Volt 3D website">
+          <div class="hp" aria-hidden="true">
+            <label for="f-botcheck">Leave this box empty</label>
+            <input type="checkbox" name="botcheck" id="f-botcheck" tabindex="-1">
+          </div>
+
+          <div class="fields">
+            <div class="field">
+              <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="80" aria-describedby="e-name">
+              <p class="field__error" id="e-name"></p>
+            </div>
+            <div class="field">
+              <label for="f-company">Company <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-company" name="company" type="text" autocomplete="organization" required maxlength="120" aria-describedby="e-company">
+              <p class="field__error" id="e-company"></p>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone / WhatsApp <span class="req" aria-hidden="true">*</span><span class="opt" hidden>(optional)</span></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="+91 98765 43210" aria-describedby="e-phone">
+              <p class="field__error" id="e-phone"></p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="req" aria-hidden="true">*</span><span class="opt" hidden>(optional)</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" aria-describedby="e-email">
+              <p class="field__error" id="e-email"></p>
+            </div>
+            <div class="field">
+              <label for="f-kwp">Project size (kWp) <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-kwp" name="project_size_kwp" type="text" inputmode="decimal" required maxlength="10" placeholder="e.g. 150" aria-describedby="e-kwp">
+              <p class="field__error" id="e-kwp"></p>
+            </div>
+            <div class="field">
+              <label for="f-location">Site location <span class="opt">(optional)</span></label>
+              <input id="f-location" name="site_location" type="text" autocomplete="off" maxlength="120" placeholder="Town, district or state">
+            </div>
+            <div class="field field--wide">
+              <label for="f-message">Message <span class="opt">(optional)</span></label>
+              <textarea id="f-message" name="message" maxlength="1500" rows="4" placeholder="Roof type, what inputs you have ready, when you need it"></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Send enquiry<svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+          <p class="form-note"><span>We use these details to reply to your enquiry.</span><a href="https://ray2voltsolar.com/privacy-policy.html" target="_blank" rel="noopener">Privacy policy</a></p>
+        </form>
+        <div class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 9. Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="footer__logo" href="./" aria-label="Ray2Volt 3D home">
+          <picture>
+            <source srcset="assets/ray2volt-3d-logo-h64.webp 590w, assets/ray2volt-3d-logo-h128.webp 1180w" sizes="258px" type="image/webp">
+            <img src="assets/ray2volt-3d-logo-h64.png" alt="Ray2Volt 3D" width="590" height="64" loading="lazy" decoding="async">
+          </picture>
+        </a>
+        <p class="footer__parent"><a href="https://ray2voltsolar.com/" target="_blank" rel="noopener">A Ray2Volt Solar company</a></p>
+        <p class="footer__parent">Interactive 3D viewers for C&amp;I solar proposals.</p>
+      </div>
+      <div>
+        <h2>On this page</h2>
+        <ul class="footer__links">
+          <li><a href="#demos">Live demos</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul class="footer__contact">
+          <li><a href="mailto:3d@ray2voltsolar.com"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-mail"/></svg>3d@ray2voltsolar.com</a></li>
+          <li><a href="https://wa.me/919666068140?text=Hi%2C%20I%20want%20a%203D%20viewer%20for%20a%20___%20kW%20C%26I%20project" target="_blank" rel="noopener"><svg class="icon icon--sm icon--fill" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp +91 96660 68140</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__bottom">© 2026 Ray2Volt 3D · A Ray2Volt Solar company</p>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/919666068140?text=Hi%2C%20I%20want%20a%203D%20viewer%20for%20a%20___%20kW%20C%26I%20project" target="_blank" rel="noopener" aria-label="WhatsApp us on +91 96660 68140">
+  <svg class="icon icon--fill" aria-hidden="true"><use href="#i-wa"/></svg><span aria-hidden="true">WhatsApp</span>
+</a>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>
