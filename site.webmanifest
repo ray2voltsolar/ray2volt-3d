@@ -3,8 +3,8 @@
   "short_name": "Ray2Volt 3D",
   "start_url": "./",
   "display": "standalone",
-  "theme_color": "#0A0F1D",
-  "background_color": "#0A0F1D",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
   "icons": [
     {
       "src": "icon-192.png",
