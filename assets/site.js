@@ -281,7 +281,10 @@
       if (!f) return;
       var r = f.getBoundingClientRect();
       if (!r.width) return;
-      boxes.push({ f: f, l: r.left - FLOAT_GAP, t: r.top - FLOAT_GAP, r: r.right + FLOAT_GAP, b: r.bottom + FLOAT_GAP, hit: false });
+      // A button still sliding into view (back to top: 20px over 0.4s) is measured where it will come to rest
+      var fm = /matrix\(([^)]+)\)/.exec(getComputedStyle(f).transform || '');
+      var fy = fm ? parseFloat(fm[1].split(',')[5]) || 0 : 0;
+      boxes.push({ f: f, l: r.left - FLOAT_GAP, t: r.top - fy - FLOAT_GAP, r: r.right + FLOAT_GAP, b: r.bottom - fy + FLOAT_GAP, hit: false });
     });
     if (!boxes.length) return;
     var bandTop = Math.min.apply(null, boxes.map(function (b) { return b.t; }));
