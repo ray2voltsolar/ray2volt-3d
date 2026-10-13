@@ -585,12 +585,11 @@
               <!-- Shown by assets/site.js when the visitor came from a WhatsApp link or /#whatsapp -->
               <p class="form-hint-wa form-hint-wa--top" id="wa-lead" hidden><svg class="home-icon home-icon--fill" aria-hidden="true"><use href="#i-wa"/></svg><span>Fill in these details, then tap <strong>Send on WhatsApp</strong>: they go into the message.</span></p>
             </div>
-            <!-- TODO(owner): create a free Web3Forms access key for 3d@ray2voltsolar.com at https://web3forms.com and
-                 paste it over the placeholder value on the next line (this is the only place it appears in site/).
-                 While it is still the placeholder, the form puts "Send on WhatsApp" first (gold) and the email button
-                 opens the visitor's own email app with the details filled in; nothing is sent to Web3Forms. With a real
-                 key, "Send enquiry" (gold) emails you the lead, and "Send on WhatsApp" emails it too before opening WhatsApp. -->
-            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <!-- Web3Forms access key: the same key as the forms on ray2voltsolar.com (owner, 13 Oct 2026: this page also
+                 lives on the main site at ray2voltsolar.com/ray2volt-3d.html), so 3D enquiries arrive in the main site's
+                 inbox. "Send enquiry" (gold) emails the lead, and "Send on WhatsApp" emails it too before opening WhatsApp.
+                 This is the only place the key appears in site/. -->
+            <input type="hidden" name="access_key" value="b3d2b2c1-4237-4de1-8879-9048dfa1beb8">
             <input type="hidden" name="subject" value="New Ray2Volt 3D enquiry">
             <input type="hidden" name="from_name" value="Ray2Volt 3D website">
             <div class="hp" aria-hidden="true">
