@@ -10,7 +10,7 @@
      the load event), so the page never stays hidden behind a broken script. -->
 <script>(function(){var theme='light';try{var saved=localStorage.getItem('r2v-theme');if(saved==='light'||saved==='dark')theme=saved;}catch(e){}var root=document.documentElement;root.setAttribute('data-theme',theme);root.classList.add('js');if(theme==='dark'){var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#0A0F1D');}window.addEventListener('load',function(){if(!window.R2V_READY)root.classList.remove('js');});})();</script>
 <title>Ray2Volt 3D | 3D plant viewers for C&amp;I solar EPCs</title>
-<meta name="description" content="Every EPC sends a PDF. Send a 3D plant. A live 3D viewer of your C&amp;I solar project for your client, in 3–5 working days after complete inputs, from ₹4,999.">
+<meta name="description" content="Every EPC sends a PDF. Send a 3D plant. Live 3D viewers of C&amp;I solar projects: Basic from ₹4,999 + GST in 3–5 working days, Pro with walkthrough videos.">
 <link rel="canonical" href="https://3d.ray2voltsolar.com/">
 <meta name="color-scheme" content="light dark">
 <meta name="format-detection" content="telephone=no">
@@ -25,7 +25,7 @@
 <meta property="og:site_name" content="Ray2Volt 3D">
 <meta property="og:locale" content="en_IN">
 <meta property="og:title" content="Every EPC sends a PDF. Send a 3D plant.">
-<meta property="og:description" content="A live 3D viewer of your C&amp;I solar project, ready to share with your client. 3–5 working days · from ₹4,999.">
+<meta property="og:description" content="A live 3D viewer of your C&amp;I solar project, ready to share with your client. Basic from ₹4,999 + GST · Pro with walkthrough videos · first viewer at half price.">
 <meta property="og:url" content="https://3d.ray2voltsolar.com/">
 <meta property="og:image" content="https://ray2voltsolar.github.io/ray2volt-3d/og-image.png?v=2">
 <meta property="og:image:type" content="image/png">
@@ -34,7 +34,7 @@
 <meta property="og:image:alt" content="Ray2Volt 3D: Every EPC sends a PDF. Send a 3D plant. 3–5 working days, from ₹4,999.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Every EPC sends a PDF. Send a 3D plant.">
-<meta name="twitter:description" content="A live 3D viewer of your C&amp;I solar project, ready to share with your client. 3–5 working days · from ₹4,999.">
+<meta name="twitter:description" content="A live 3D viewer of your C&amp;I solar project, ready to share with your client. Basic from ₹4,999 + GST · Pro with walkthrough videos · first viewer at half price.">
 <meta name="twitter:image" content="https://ray2voltsolar.github.io/ray2volt-3d/og-image.png?v=2">
 <meta name="twitter:image:alt" content="Ray2Volt 3D: Every EPC sends a PDF. Send a 3D plant. 3–5 working days, from ₹4,999.">
 
@@ -44,7 +44,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400..800&amp;family=Assistant:wght@400..800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400..800&amp;family=Assistant:wght@400..800&amp;display=swap" rel="stylesheet"></noscript>
 
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=3">
 
 <script type="application/ld+json">
 {
@@ -87,20 +87,30 @@
       "@id": "https://3d.ray2voltsolar.com/#service",
       "name": "Interactive 3D solar plant viewer",
       "serviceType": "3D visualisation of C&I solar projects",
-      "description": "One hosted, interactive 3D web viewer per C&I solar project, built from the EPC's PV layout, equipment list, site location and photos. Ready in 3–5 working days after complete inputs.",
+      "description": "One hosted, interactive 3D web viewer per C&I solar project, built from the EPC's PV layout, equipment list, site location and photos. Basic 3D is ready in 3–5 working days after complete inputs; Pro 3D adds walkthrough videos and white-label in 5–7 working days.",
       "provider": { "@id": "https://3d.ray2voltsolar.com/#organization" },
       "audience": { "@type": "BusinessAudience", "audienceType": "Solar EPCs and installers" },
       "areaServed": { "@type": "Country", "name": "India" },
-      "offers": {
-        "@type": "Offer",
-        "description": "Starting at ₹4,999. Fixed price that depends on site size.",
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "minPrice": 4999,
-          "priceCurrency": "INR"
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Basic 3D",
+          "description": "Interactive 3D viewer of one C&I project. Fixed, affordable price by total DC kWp, plus GST: ₹4,999 up to 250 kWp, ₹9,999 for 251 kWp to 1 MW, ₹17,999 for 1 to 3 MW. Above 3 MW on quote.",
+          "price": 4999,
+          "priceCurrency": "INR",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "price": 4999, "priceCurrency": "INR", "valueAddedTaxIncluded": false },
+          "url": "https://3d.ray2voltsolar.com/#pricing"
         },
-        "url": "https://3d.ray2voltsolar.com/#pricing"
-      }
+        {
+          "@type": "Offer",
+          "name": "Pro 3D",
+          "description": "The 3D viewer plus 45–60 s walkthrough videos (9:16 and 16:9, with captions), white-label. Fixed, affordable price by total DC kWp, plus GST: ₹9,999 up to 250 kWp, ₹19,999 for 251 kWp to 1 MW, ₹34,999 for 1 to 3 MW. Above 3 MW on quote.",
+          "price": 9999,
+          "priceCurrency": "INR",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "price": 9999, "priceCurrency": "INR", "valueAddedTaxIncluded": false },
+          "url": "https://3d.ray2voltsolar.com/#pricing"
+        }
+      ]
     }
   ]
 }
@@ -137,6 +147,9 @@
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
   <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
   <symbol id="i-rupee" viewBox="0 0 24 24"><path d="M6 3h12M6 8h12M6 13l8.5 8M6 13h3c6.67 0 6.67-10 0-10"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M3 7h16a2 2 0 0 1 2 2v3h-4a2 2 0 0 0 0 4h4"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
 </svg>
 
@@ -177,7 +190,7 @@
         <div class="home-hero__copy">
           <p class="home-eyebrow"><span class="home-eyebrow__dot" aria-hidden="true"></span>For solar EPCs and installers · C&amp;I projects</p>
           <h1 id="hero-title">Every EPC sends a PDF. <span>Send a 3D plant.</span></h1>
-          <p class="home-hero__lead">We turn your PV layout into a live 3D model of the plant. Your client opens one link and explores it on a phone or laptop. Ready in <span class="nw">3–5 working days</span> once we have your inputs, <span class="nw">from ₹4,999</span>.</p>
+          <p class="home-hero__lead">We turn your PV layout into a live 3D model of the plant. Your client opens one link and explores it on a phone or laptop. Ready in <span class="nw">3–5 working days</span> once we have your inputs, <span class="nw">from ₹4,999 + GST</span>.</p>
           <div class="home-hero__actions">
             <a class="btn btn-primary btn-lg" href="#enquire">Get a quote <svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="btn home-btn-ghost btn-lg" href="#demos"><svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-play"/></svg>Try a live demo</a>
@@ -227,11 +240,11 @@
         </li>
         <li class="home-stat">
           <strong class="home-stat__num">3–5 days</strong>
-          <span>Working days after complete inputs</span>
+          <span>Working days for Basic, after complete inputs</span>
         </li>
         <li class="home-stat">
           <strong class="home-stat__num">₹4,999</strong>
-          <span>Starting price, fixed and affordable</span>
+          <span>Starting price + GST, fixed and affordable</span>
         </li>
         <li class="home-stat">
           <strong class="home-stat__num">0 apps</strong>
@@ -322,7 +335,7 @@
           <span class="home-process__step" aria-hidden="true">02</span>
           <span class="home-tile"><svg class="home-icon" aria-hidden="true"><use href="#i-cube"/></svg></span>
           <h3>We build it in <span class="nw">3–5 working days</span></h3>
-          <p>Counted from the day we have complete inputs. A sketch may need one round of questions.</p>
+          <p>For Basic, or <span class="nw">5–7</span> for Pro, counted from the day we have complete inputs. A sketch may need one round of questions.</p>
         </li>
         <li>
           <span class="home-process__step" aria-hidden="true">03</span>
@@ -341,7 +354,7 @@
         <div>
           <p class="home-kicker">What we need from you</p>
           <h2 id="inputs-title">Five inputs from your team</h2>
-          <p>The <span class="nw">3–5</span> working days start once we have inputs <span class="nw">1–4</span>, plus input 5 if your client wants their name and logo shown.</p>
+          <p>The turnaround starts once we have inputs <span class="nw">1–4</span>, plus input 5 if your client wants their name and logo shown.</p>
         </div>
       </div>
       <ul class="need-grid reveal">
@@ -469,28 +482,162 @@
     </div>
   </section>
 
-  <!-- 6. Pricing -->
+  <!-- 6. Pricing: the model the owner decided on 29 Oct 2026 (Marketing System 2026-10-29\02 Ray2Volt 3D\0 Pricing &
+       Business Model). All prices + GST, by total DC kWp. Every button leads to the enquiry form; data-package
+       preselects the package there. -->
   <section class="home-section" id="pricing" aria-labelledby="pricing-title">
     <div class="container">
-      <div class="price-panel reveal">
-        <div class="price-panel__copy">
+      <div class="home-head reveal">
+        <div>
           <p class="home-kicker">Pricing</p>
-          <h2 id="pricing-title"><span class="nw title-line">One project.</span> <span class="nw title-line">One 3D viewer.</span> <span class="nw-wide title-line">A&nbsp;fixed price for your&nbsp;site.</span></h2>
-          <ul class="price-panel__list">
-            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>A hosted, interactive 3D viewer of one project, on a link you share with your client</span></li>
-            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>Ready in <span class="nw">3–5</span> working days after complete inputs</span></li>
-            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>One product, with no tiers or packages to choose from</span></li>
-          </ul>
-          <p class="price-firm"><svg class="home-icon" aria-hidden="true"><use href="#i-tag"/></svg><span><strong>Fixed, affordable pricing.</strong> One clear price for your site, quoted up front, <span class="nw">before we start.</span></span></p>
+          <h2 id="pricing-title">Fixed, affordable pricing by plant&nbsp;size</h2>
+          <p>Two packages, priced by the total DC kWp of the plant. All prices are + GST, and your quote is fixed before we&nbsp;start.</p>
         </div>
-        <div class="price-offer">
-          <p class="price-offer__from">Starting at</p>
-          <p class="price-offer__price">₹4,999</p>
-          <p class="price-offer__note">The price depends on site size. Send the form and we reply with&nbsp;yours.</p>
-          <div class="price-offer__actions">
-            <a class="btn btn-primary btn-lg" href="#enquire">Get your price <svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn home-btn-ghost" href="#enquire" data-wa-pref><svg class="home-icon home-icon--fill" aria-hidden="true"><use href="#i-wa"/></svg>Get your price on WhatsApp</a>
+        <a class="home-head__link" href="#enquire">Get your price <svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <div class="plan-grid reveal">
+        <article class="plan-card" aria-labelledby="plan-basic">
+          <div class="plan-card__head">
+            <h3 id="plan-basic">Basic 3D</h3>
+            <p class="plan-card__lede">The interactive 3D viewer, on one link for your&nbsp;client.</p>
+            <p class="plan-card__price"><span class="plan-card__from">From</span> ₹4,999 <span class="plan-card__gst">+ GST</span></p>
+            <p class="plan-card__time"><svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-clock"/></svg>3–5 working days after complete inputs</p>
           </div>
+          <dl class="slab-list" aria-label="Basic 3D price by total DC kWp">
+            <div><dt>Up to 250 kWp</dt><dd>₹4,999</dd></div>
+            <div><dt>251 kWp – 1 MW</dt><dd>₹9,999</dd></div>
+            <div><dt>1 – 3 MW</dt><dd>₹17,999</dd></div>
+            <div><dt>Above 3 MW, or more than 5 separate roofs/blocks</dt><dd>Quote</dd></div>
+          </dl>
+          <ul class="plan-card__list">
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>Orbit, zoom, tap a module or inverter, camera views and a guided tour</span></li>
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>Sun and shadow by date and time</span></li>
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your client's name and logo</span></li>
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>String plan, SLD and energy flow, when you send them</span></li>
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>1 round of changes within 30 days</span></li>
+            <li class="plan-card__muted"><svg class="home-icon" aria-hidden="true"><use href="#i-tag"/></svg><span>A small “3D by Ray2Volt 3D” credit on the viewer</span></li>
+          </ul>
+          <a class="btn home-btn-ghost plan-card__cta" href="#enquire" data-package="Basic 3D">Get a Basic quote <svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+
+        <article class="plan-card plan-card--pro" aria-labelledby="plan-pro">
+          <div class="plan-card__head">
+            <h3 id="plan-pro">Pro 3D <span class="plan-card__badge">Viewer + videos</span></h3>
+            <p class="plan-card__lede">The viewer, plus walkthrough videos and your brand&nbsp;only.</p>
+            <p class="plan-card__price"><span class="plan-card__from">From</span> ₹9,999 <span class="plan-card__gst">+ GST</span></p>
+            <p class="plan-card__time"><svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-clock"/></svg>5–7 working days after complete inputs</p>
+          </div>
+          <dl class="slab-list" aria-label="Pro 3D price by total DC kWp">
+            <div><dt>Up to 250 kWp</dt><dd>₹9,999</dd></div>
+            <div><dt>251 kWp – 1 MW</dt><dd>₹19,999</dd></div>
+            <div><dt>1 – 3 MW</dt><dd>₹34,999</dd></div>
+            <div><dt>Above 3 MW, or more than 5 separate roofs/blocks</dt><dd>Quote</dd></div>
+          </dl>
+          <ul class="plan-card__list">
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>Everything in Basic</span></li>
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-video"/></svg><span><strong>Walkthrough videos</strong> made from the model: <span class="nw">45–60 s</span>, in 9:16 and 16:9, with captions (no voice-over)</span></li>
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-tag"/></svg><span><strong>White-label:</strong> your brand only, no Ray2Volt credit</span></li>
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>2 rounds of changes within 30 days</span></li>
+          </ul>
+          <a class="btn btn-primary plan-card__cta" href="#enquire" data-package="Pro 3D">Get a Pro quote <svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+
+      <h3 class="feature-group-title price-group-title reveal" id="pricing-save">Save on your first order and repeat projects</h3>
+      <div class="bulk-grid reveal">
+        <div class="bulk-stack">
+          <article class="bulk-card" aria-labelledby="bulk-first">
+            <span class="home-tile home-tile--gold"><svg class="home-icon" aria-hidden="true"><use href="#i-rupee"/></svg></span>
+            <h3 id="bulk-first">First order at half price</h3>
+            <p>Your first Basic viewer is 50% off. One per company, checked by GSTIN, for a real C&amp;I project. It can't be combined with a wallet or subscription.</p>
+            <dl class="wallet-list">
+              <div><dt>Up to 250 kWp</dt><dd><s>₹4,999</s> <strong>₹2,499</strong> + GST</dd></div>
+              <div><dt>251 kWp – 1 MW</dt><dd><s>₹9,999</s> <strong>₹4,999</strong> + GST</dd></div>
+              <div><dt>1 – 3 MW</dt><dd><s>₹17,999</s> <strong>₹8,999</strong> + GST</dd></div>
+            </dl>
+            <a class="home-head__link" href="#enquire" data-package="Basic 3D">Start your first order <svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="bulk-card" aria-labelledby="bulk-wallet">
+            <span class="home-tile"><svg class="home-icon" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+            <h3 id="bulk-wallet">Prepaid wallet</h3>
+            <p>For occasional projects. Pay in advance and get more work for it, on any package and any plant size, within 12&nbsp;months.</p>
+            <dl class="wallet-list">
+              <div><dt>Pay ₹50,000</dt><dd>Get ₹60,000 of work</dd></div>
+              <div><dt>Pay ₹1,00,000</dt><dd>Get ₹1,30,000 of work, plus a priority queue</dd></div>
+            </dl>
+            <a class="home-head__link" href="#enquire" data-package="Prepaid wallet">Ask about wallets <svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+
+        <article class="bulk-card" aria-labelledby="bulk-desk">
+          <span class="home-tile"><svg class="home-icon" aria-hidden="true"><use href="#i-repeat"/></svg></span>
+          <h3 id="bulk-desk">Proposal Desk subscription</h3>
+          <p>A monthly plan for EPCs who send proposals every month.</p>
+          <dl class="wallet-list">
+            <div><dt>Desk 5</dt><dd>₹19,999 a month for 5 credits (₹4,000 each)</dd></div>
+            <div><dt>Desk 10</dt><dd>₹34,999 a month for 10 credits (₹3,500 each)</dd></div>
+          </dl>
+          <div class="credit-table-wrap">
+            <table class="credit-table">
+              <caption>Credits used per project</caption>
+              <thead><tr><th scope="col">Plant size</th><th scope="col">Basic</th><th scope="col">Pro</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Up to 250 kWp</th><td>1</td><td>2</td></tr>
+                <tr><th scope="row">251 kWp – 1 MW</th><td>2</td><td>4</td></tr>
+                <tr><th scope="row">1 – 3 MW</th><td>4</td><td>7</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ul class="bulk-card__list">
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>Every viewer is white-label, Basic included</span></li>
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>Viewers stay live while you are subscribed</span></li>
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>Priority turnaround: 3 working days for Basic</span></li>
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>Unused credits roll over for one month</span></li>
+            <li><svg class="home-icon" aria-hidden="true"><use href="#i-check"/></svg><span>3-month minimum, then month to month</span></li>
+          </ul>
+          <a class="home-head__link" href="#enquire" data-package="Proposal Desk subscription">Ask about Proposal Desk <svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+
+      <h3 class="feature-group-title price-group-title reveal" id="pricing-terms">Good to know</h3>
+      <ul class="home-features price-terms reveal" aria-labelledby="pricing-terms">
+        <li class="home-feature">
+          <svg class="home-icon" aria-hidden="true"><use href="#i-link"/></svg>
+          <div>
+            <h4>Hosting</h4>
+            <p>Each viewer link stays live for 12 months. After that, ₹999 per viewer per year keeps it live. Subscribers' viewers stay live while they are subscribed.</p>
+          </div>
+        </li>
+        <li class="home-feature">
+          <svg class="home-icon" aria-hidden="true"><use href="#i-tag"/></svg>
+          <div>
+            <h4>Branding</h4>
+            <p>Basic viewers carry a small “3D by Ray2Volt 3D” credit. Pro and subscription viewers carry your brand only.</p>
+          </div>
+        </li>
+        <li class="home-feature">
+          <svg class="home-icon" aria-hidden="true"><use href="#i-rupee"/></svg>
+          <div>
+            <h4>Payment</h4>
+            <p>Basic is paid 100% in advance. Pro is paid 50% in advance and 50% before handover. Wallets and subscriptions are paid in advance.</p>
+          </div>
+        </li>
+        <li class="home-feature">
+          <svg class="home-icon" aria-hidden="true"><use href="#i-orbit"/></svg>
+          <div>
+            <h4>Changes</h4>
+            <p>Our errors are always fixed free. Basic includes 1 round of changes within 30 days and Pro includes 2. Each extra round is ₹999 (Basic) or ₹1,999 (Pro).</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="price-cta reveal">
+        <p class="price-firm"><svg class="home-icon" aria-hidden="true"><use href="#i-info"/></svg><span>All prices + GST, with a GST invoice. Your quote is fixed before work starts. C&amp;I projects only. We don't design layouts from scratch, prepare SLDs or BOMs, or make PVsyst reports. Energy figures are model estimates, not generation guarantees.</span></p>
+        <div class="price-cta__actions">
+          <a class="btn btn-primary" href="#enquire">Get your price <svg class="home-icon home-icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn home-btn-ghost" href="#enquire" data-wa-pref><svg class="home-icon home-icon--fill" aria-hidden="true"><use href="#i-wa"/></svg>Get your price on WhatsApp</a>
         </div>
       </div>
     </div>
@@ -519,7 +666,7 @@
         </details>
         <details class="faq-item">
           <summary>What exactly do I get?</summary>
-          <div class="faq-answer"><p>One hosted, interactive 3D web viewer of your project, on a link you send to your client. There is one product for now: no tiers or packages.</p><p>The string plan, single-line diagram and energy flow are added when your design documents include them. We don't do the electrical design.</p></div>
+          <div class="faq-answer"><p>With <strong>Basic 3D</strong>: one hosted, interactive 3D web viewer of your project, on a link you send to your client. <strong>Pro 3D</strong> adds 45–60 s walkthrough videos made from the model (9:16 and 16:9, with captions) and carries your brand only.</p><p>The string plan, single-line diagram and energy flow are added when your design documents include them. We don't do the electrical design.</p></div>
         </details>
         <details class="faq-item">
           <summary>Does my client need to install an app?</summary>
@@ -527,7 +674,7 @@
         </details>
         <details class="faq-item">
           <summary>How fast is it ready?</summary>
-          <div class="faq-answer"><p>3–5 working days after we receive complete inputs. If something is missing or unclear, the clock starts once we have it.</p></div>
+          <div class="faq-answer"><p>Basic takes 3–5 working days and Pro 5–7, after we receive complete inputs. Proposal Desk subscribers get Basic in 3 working days. If something is missing or unclear, the clock starts once we have it.</p></div>
         </details>
         <details class="faq-item">
           <summary>We only have a hand-drawn sketch. Is that enough?</summary>
@@ -539,7 +686,23 @@
         </details>
         <details class="faq-item">
           <summary>How is the price decided?</summary>
-          <div class="faq-answer"><p>Prices start at ₹4,999. The price depends on site size, and it is fixed and affordable. Send the <a class="text-link" href="#enquire">enquiry form</a> and we reply with your price.</p></div>
+          <div class="faq-answer"><p>By the package and the total DC kWp of the plant. Basic starts at ₹4,999 and Pro at ₹9,999, + GST, up to 250 kWp; the <a class="text-link" href="#pricing">price list</a> shows every size. Plants above 3 MW, or with more than 5 separate roofs or blocks, are quoted. Your quote is fixed before work starts.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a free sample?</summary>
+          <div class="faq-answer"><p>No, but your first Basic viewer is half price: ₹2,499 + GST up to 250 kWp. It is one per company, checked by GSTIN, for a real C&amp;I project.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>We send proposals every month. Is there a plan for that?</summary>
+          <div class="faq-answer"><p>Yes, two. A <strong>prepaid wallet</strong>: pay ₹50,000 and get ₹60,000 of work, or pay ₹1,00,000 and get ₹1,30,000 plus a priority queue, valid 12 months. Or the <strong>Proposal Desk</strong> subscription: ₹19,999 a month for 5 credits or ₹34,999 for 10, with white-label viewers and Basic in 3 working days.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>How long does the link stay live?</summary>
+          <div class="faq-answer"><p>12 months from delivery. After that, ₹999 per viewer per year keeps it live. Proposal Desk subscribers' viewers stay live while they are subscribed.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>How do payment and changes work?</summary>
+          <div class="faq-answer"><p>Basic is paid 100% in advance. Pro is paid 50% in advance and 50% before handover.</p><p>Our errors are always fixed free. Basic includes 1 round of changes within 30 days and Pro includes 2. Each extra round is ₹999 (Basic) or ₹1,999 (Pro).</p></div>
         </details>
         <details class="faq-item">
           <summary>Can I just message you on WhatsApp?</summary>
@@ -551,7 +714,7 @@
         </details>
         <details class="faq-item">
           <summary>Can you white-label the viewer with our company's branding?</summary>
-          <div class="faq-answer"><p>Not yet. White-label viewers are not offered at the moment.</p></div>
+          <div class="faq-answer"><p>Yes. Pro 3D viewers and every Proposal Desk subscription viewer carry your brand only. Basic viewers carry a small “3D by Ray2Volt 3D” credit.</p></div>
         </details>
         <details class="faq-item">
           <summary>Are the energy numbers in the viewer a guarantee?</summary>
@@ -575,7 +738,7 @@
 
         <div class="home-form-card" id="form-card">
           <!-- Shown instead of the form when JavaScript is off or assets/site.js could not run (the "js" class is missing) -->
-          <div class="form-status form-status--note form-noscript"><strong>Please email us your enquiry</strong>Write to <a href="mailto:3d@ray2voltsolar.com?subject=3D%20viewer%20enquiry">3d@ray2voltsolar.com</a> with your name, company, WhatsApp number, project city and project size in kWp. We reply on WhatsApp.</div>
+          <div class="form-status form-status--note form-noscript"><strong>Please email us your enquiry</strong>Write to <a href="mailto:3d@ray2voltsolar.com?subject=3D%20viewer%20enquiry">3d@ray2voltsolar.com</a> with your name, company, WhatsApp number, project city, project size in kWp and the package you want (Basic or Pro). We reply on WhatsApp.</div>
           <!-- No action attribute on purpose: assets/site.js validates the form and sends it with fetch() to data-endpoint.
                Both buttons run the same checks. "Send on WhatsApp" also opens WhatsApp with every field in the message. -->
           <form class="form-stack" id="enquiry-form" method="post" accept-charset="UTF-8" novalidate data-endpoint="https://api.web3forms.com/submit">
@@ -644,6 +807,16 @@
                 <p class="fine-print" id="h-layout" hidden>We build the 3D plant from your team's layout and don't design layouts from scratch. You can still send the enquiry and the layout later.</p>
               </div>
             </div>
+            <!-- Preselected by the pricing section's buttons (data-package, assets/site.js) -->
+            <fieldset class="home-choice">
+              <legend>Package <span class="opt">(optional)</span></legend>
+              <div class="home-choice__options home-choice__options--4">
+                <label><input type="radio" name="package" value="Basic 3D"><span>Basic</span></label>
+                <label><input type="radio" name="package" value="Pro 3D"><span>Pro</span></label>
+                <label><input type="radio" name="package" value="Prepaid wallet"><span>Wallet</span></label>
+                <label><input type="radio" name="package" value="Proposal Desk subscription"><span>Subscription</span></label>
+              </div>
+            </fieldset>
             <fieldset class="home-choice">
               <legend>Project type <span class="opt">(optional)</span></legend>
               <div class="home-choice__options">
@@ -686,7 +859,7 @@
               <span class="next-steps__num" aria-hidden="true">1</span>
               <div>
                 <h4>We reply with your price</h4>
-                <p>On WhatsApp: one fixed, affordable price for your site, from&nbsp;₹4,999.</p>
+                <p>On WhatsApp: one fixed, affordable price for your site, from&nbsp;₹4,999&nbsp;+&nbsp;GST.</p>
               </div>
             </li>
             <li>
@@ -700,7 +873,7 @@
               <span class="next-steps__num" aria-hidden="true">3</span>
               <div>
                 <h4>Your 3D viewer is ready</h4>
-                <p>In <span class="nw">3–5 working days</span> after complete inputs, on one link for your client.</p>
+                <p>In <span class="nw">3–5 working days</span> for Basic or <span class="nw">5–7</span> for Pro, after complete inputs, on one link for your client.</p>
               </div>
             </li>
           </ol>
@@ -768,6 +941,6 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
 </button>
 
-<script src="assets/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
+<script src="assets/site.js?v=3" defer onerror="document.documentElement.classList.remove('js')"></script>
 </body>
 </html>

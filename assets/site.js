@@ -198,6 +198,12 @@
     if (!target) return;
     e.preventDefault();
     if (link.hasAttribute('data-wa-pref')) preferWhatsApp(true);
+    // The pricing section's buttons preselect their package in the form
+    var pkg = link.getAttribute('data-package');
+    if (pkg) {
+      var radio = document.querySelector('#enquiry-form input[name="package"][value="' + pkg + '"]');
+      if (radio) radio.checked = true;
+    }
     scrollToTarget(target, id === '#enquire' ? formFocusTarget() : null);
   });
 
@@ -630,6 +636,7 @@
       ['Company', value('company')],
       ['Project city', value('project_city')],
       ['Project size', kwp ? kwp + ' kWp' : value('project_size_kwp')],
+      ['Package', checkedValue('package')],
       ['Project type', checkedValue('project_type')],
       ['Layout I have', value('layout')],
       ['Message', value('message')]
@@ -669,6 +676,7 @@
     data.append('company', value('company'));
     data.append('project_city', value('project_city'));
     data.append('project_size_kwp', String(parseKwp(value('project_size_kwp')) || value('project_size_kwp')));
+    data.append('package', checkedValue('package'));
     data.append('project_type', checkedValue('project_type'));
     data.append('layout', value('layout'));
     data.append('message', value('message'));

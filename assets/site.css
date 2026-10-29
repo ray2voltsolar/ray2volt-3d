@@ -28,7 +28,7 @@
 
     --transition: 200ms ease;
 
-    --container-max: 1280px;
+    --container-max: 1200px;
     --container-padding: 1.5rem;
 
     --font-heading: 'Google Sans', 'Google Sans Flex', sans-serif;
@@ -104,7 +104,7 @@ body {
     --h-form-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.85);
     --h-frame-shadow: 0 40px 80px -32px rgba(0, 0, 0, 0.8), 0 0 0 10px rgba(255, 255, 255, 0.025);
     --h-grid: rgba(56, 189, 248, 0.16);
-    --h-radius: 20px;
+    --h-radius: 16px;
 }
 
 :root:not([data-theme="dark"]) body {
@@ -209,6 +209,14 @@ body {
 html,
 body {
     overflow-x: clip;
+}
+
+/* Round 3 (owner, 29 Oct 2026: "everything is so huge, anything barely fits the page"): from 961 px the whole
+   page runs on a 15 px rem, so type, spacing and cards shrink together. Phones keep 16 px for reading. */
+@media (min-width: 961px) {
+    html {
+        font-size: 15px;
+    }
 }
 
 /* Flat blueprint grid behind the top of the page (styles.css) */
@@ -352,21 +360,6 @@ html {
     display: inline-block;
 }
 
-/* Kept on one line from 641px (the pricing title's second sentence, follow-up PAR2-2) */
-@media (min-width: 641px) {
-    .nw-wide {
-        white-space: nowrap;
-    }
-}
-
-/* Phones under 390px: the pricing title breaks only between its sentences ("One project." / "One 3D viewer." /
-   "A fixed price for your site."), never as "One project. One / 3D viewer. A fixed" */
-@media (max-width: 389px) {
-    .title-line {
-        display: block;
-    }
-}
-
 /* --------------------------------------------------------------------------
    4. Typography (styles.css section 3 + theme.css section 2)
    -------------------------------------------------------------------------- */
@@ -383,13 +376,13 @@ h4 {
 }
 
 h1 {
-    font-size: clamp(2rem, 1.3rem + 1.9vw, 2.75rem);
+    font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
     letter-spacing: -0.035em;
     line-height: 1.12;
 }
 
 h2 {
-    font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
+    font-size: clamp(1.375rem, 1rem + 0.8vw, 1.75rem);
     letter-spacing: -0.03em;
     line-height: 1.18;
 }
@@ -445,7 +438,7 @@ b {
 }
 
 .home h2 {
-    font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem);
+    font-size: clamp(1.375rem, 1rem + 0.8vw, 1.75rem);
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.15;
@@ -453,7 +446,7 @@ b {
 }
 
 .home-section {
-    padding: 4.5rem 0;
+    padding: 3.5rem 0;
 }
 
 .home-hero + .home-section,
@@ -462,7 +455,7 @@ b {
 }
 
 .home-section--last {
-    padding-bottom: 5rem;
+    padding-bottom: 4rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -859,7 +852,7 @@ b {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.875rem 1.75rem;
+    padding: 0.6875rem 1.375rem;
     font-family: var(--font-heading);
     font-size: 0.9375rem;
     font-weight: 600;
@@ -920,8 +913,8 @@ b {
 }
 
 .btn-lg {
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    padding: 0.8125rem 1.75rem;
+    font-size: 0.9375rem;
 }
 
 .btn-sm {
@@ -931,7 +924,7 @@ b {
 
 /* Large buttons below the hero are one step smaller (theme.css) */
 .home-section .btn-lg {
-    padding: 0.875rem 1.75rem;
+    padding: 0.75rem 1.5rem;
     font-size: 0.9375rem;
 }
 
@@ -968,7 +961,7 @@ form .btn:hover {
 
 @media (hover: none) and (pointer: coarse) {
     .btn {
-        min-height: 48px;
+        min-height: 46px;
     }
 
     .btn:hover,
@@ -989,8 +982,8 @@ form .btn:hover {
 }
 
 .home-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     flex: none;
     fill: none;
     stroke: currentColor;
@@ -1040,7 +1033,7 @@ form .btn:hover {
     align-items: flex-end;
     justify-content: space-between;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .home-head > div {
@@ -1074,9 +1067,9 @@ form .btn:hover {
     flex: none;
     display: grid;
     place-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 11px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
     color: var(--h-sky);
     background: var(--h-tile-bg);
     border: 1px solid var(--h-tile-line);
@@ -1093,7 +1086,7 @@ form .btn:hover {
    -------------------------------------------------------------------------- */
 .home-hero {
     position: relative;
-    padding: 8.5rem 0 4rem;
+    padding: 7rem 0 3rem;
     overflow: hidden;
 }
 
@@ -1104,7 +1097,7 @@ form .btn:hover {
 .home-hero__grid {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 4.5rem;
+    gap: 3.5rem;
     align-items: center;
 }
 
@@ -1112,8 +1105,8 @@ form .btn:hover {
     display: inline-flex;
     align-items: center;
     gap: 0.625rem;
-    margin-bottom: 1.5rem;
-    padding: 0.4375rem 0.875rem 0.4375rem 0.75rem;
+    margin-bottom: 1.125rem;
+    padding: 0.375rem 0.875rem 0.375rem 0.75rem;
     border: 1px solid var(--h-eyebrow-line);
     border-radius: 999px;
     background: var(--h-eyebrow-bg);
@@ -1133,11 +1126,11 @@ form .btn:hover {
 }
 
 .home-hero h1 {
-    font-size: clamp(2rem, 1.3rem + 1.9vw, 2.75rem);
+    font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
     font-weight: 700;
     letter-spacing: -0.035em;
     line-height: 1.12;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .home-hero h1 span {
@@ -1146,11 +1139,11 @@ form .btn:hover {
 }
 
 .home p.home-hero__lead {
-    max-width: 34rem;
-    font-size: 1.125rem;
-    line-height: 1.7;
+    max-width: 33rem;
+    font-size: 1.0625rem;
+    line-height: 1.65;
     color: var(--h-muted);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .home-hero__actions {
@@ -1163,7 +1156,7 @@ form .btn:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 0.625rem 1.5rem;
-    margin-top: 1.75rem;
+    margin-top: 1.25rem;
 }
 
 .home-hero__assurances li {
@@ -1188,7 +1181,7 @@ form .btn:hover {
 
 .home-hero__frame {
     position: relative;
-    border-radius: 28px;
+    border-radius: 22px;
     overflow: hidden;
     border: 1px solid var(--h-line-strong);
     box-shadow: var(--h-frame-shadow);
@@ -1212,7 +1205,7 @@ form .btn:hover {
     inset: 1px;
     width: calc(100% - 2px);
     height: calc(100% - 2px);
-    border-radius: 27px;
+    border-radius: 21px;
     opacity: 0;
     transition: opacity 0.6s ease;
 }
@@ -1299,9 +1292,9 @@ form .btn:hover {
     z-index: 3;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    max-width: 340px;
-    padding: 0.75rem 1rem 0.75rem 0.75rem;
+    gap: 0.625rem;
+    max-width: 300px;
+    padding: 0.625rem 0.875rem 0.625rem 0.625rem;
     border: 1px solid var(--h-line-strong);
     border-radius: 16px;
     background: var(--h-float-bg);
@@ -1317,7 +1310,7 @@ form .btn:hover {
 .home-float strong {
     display: block;
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 0.9375rem;
     color: var(--h-ink);
 }
 
@@ -1336,9 +1329,9 @@ form .btn:hover {
     flex: none;
     display: grid;
     place-items: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
     color: var(--h-sky);
     background: var(--h-tile-bg);
 }
@@ -1356,7 +1349,7 @@ form .btn:hover {
 .home-stats {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    margin-top: 3rem;
+    margin-top: 2.25rem;
     border: 1px solid var(--h-line);
     border-radius: var(--h-radius);
     background: var(--h-surface);
@@ -1366,7 +1359,7 @@ form .btn:hover {
 }
 
 .home-stat {
-    padding: 1.25rem 1.5rem;
+    padding: 1rem 1.25rem;
     border-left: 1px solid var(--h-line);
 }
 
@@ -1378,7 +1371,7 @@ form .btn:hover {
     display: block;
     margin-bottom: 0.25rem;
     font-family: var(--font-heading);
-    font-size: clamp(1.375rem, 1.1rem + 0.7vw, 1.75rem);
+    font-size: clamp(1.25rem, 1rem + 0.6vw, 1.5rem);
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.15;
@@ -1406,14 +1399,14 @@ form .btn:hover {
     flex-direction: column;
     overflow: hidden;
     border: 1px solid var(--h-line);
-    border-radius: 24px;
+    border-radius: 18px;
     background: var(--h-surface);
     box-shadow: var(--h-card-shadow);
 }
 
 .demo-card__media {
     display: block;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     border-bottom: 1px solid var(--h-line);
     background: #DCE3EA;
@@ -1435,7 +1428,7 @@ form .btn:hover {
     flex: 1;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1.5rem 1.75rem 1.75rem;
+    padding: 1.25rem 1.5rem 1.5rem;
 }
 
 .demo-card__tag {
@@ -1456,8 +1449,8 @@ form .btn:hover {
 }
 
 .demo-card h3 {
-    margin: 0.875rem 0 0.5rem;
-    font-size: 1.1875rem;
+    margin: 0.75rem 0 0.375rem;
+    font-size: 1.125rem;
 }
 
 .home .demo-card__body > p {
@@ -1471,7 +1464,7 @@ form .btn:hover {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 100%;
-    margin: auto 0 1.5rem; /* the facts and the button sit on the same line in both cards (round 2, P6) */
+    margin: auto 0 1.25rem; /* the facts and the button sit on the same line in both cards (round 2, P6) */
     border: 1px solid var(--h-line);
     border-radius: 14px;
     background: var(--h-tile-bg);
@@ -1512,11 +1505,11 @@ form .btn:hover {
 .home-band {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1rem;
     margin-top: 1rem;
-    padding: 1.25rem 1.75rem;
+    padding: 1rem 1.5rem;
     border: 1px solid var(--h-line);
-    border-radius: 20px;
+    border-radius: var(--h-radius);
     background: var(--h-surface);
     box-shadow: var(--h-card-shadow);
 }
@@ -1544,14 +1537,14 @@ form .btn:hover {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     border: 1px solid var(--h-line);
-    border-radius: 20px;
+    border-radius: var(--h-radius);
     background: var(--h-surface);
     box-shadow: var(--h-card-shadow);
 }
 
 .home-process li {
     position: relative;
-    padding: 1.5rem;
+    padding: 1.25rem 1.375rem;
     border-left: 1px solid var(--h-line);
 }
 
@@ -1563,7 +1556,7 @@ form .btn:hover {
     content: '';
     position: absolute;
     z-index: 1;
-    top: 2.4rem;
+    top: 2.1rem;
     right: -6px;
     width: 11px;
     height: 11px;
@@ -1575,10 +1568,10 @@ form .btn:hover {
 
 .home-process__step {
     position: absolute;
-    top: 1.25rem;
-    right: 1.25rem;
+    top: 1.125rem;
+    right: 1.125rem;
     font-family: var(--font-heading);
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1;
     color: transparent;
@@ -1586,7 +1579,7 @@ form .btn:hover {
 }
 
 .home-process h3 {
-    margin: 1rem 0 0.25rem;
+    margin: 0.875rem 0 0.25rem;
     font-size: 1rem;
     font-weight: 700;
 }
@@ -1612,7 +1605,7 @@ form .btn:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1.5rem;
+    padding: 1.25rem;
     border: 1px solid var(--h-line);
     border-radius: var(--h-radius);
     background: var(--h-surface);
@@ -1622,19 +1615,19 @@ form .btn:hover {
 /* The PV layout: the input everything is built from, so it gets the big card (home.css pay card, gold variant) */
 .need-card--main {
     grid-row: span 2;
-    padding: 1.75rem;
-    /* 2px less on top than the side cards' 1.5rem, for the 2px thicker gold border: the tiles line up (round 2, P5) */
-    padding-top: calc(1.5rem - 2px);
+    padding: 1.5rem;
+    /* 2px less on top than the side cards' 1.25rem, for the 2px thicker gold border: the tiles line up (round 2, P5) */
+    padding-top: calc(1.25rem - 2px);
     border-top: 3px solid var(--h-gold);
 }
 
 .need-card h3 {
-    margin: 1rem 0 0.375rem;
+    margin: 0.875rem 0 0.375rem;
     font-size: 1.0625rem;
 }
 
 .need-card--main h3 {
-    font-size: 1.1875rem;
+    font-size: 1.125rem;
 }
 
 .home .need-card p {
@@ -1646,10 +1639,10 @@ form .btn:hover {
 
 .need-card__num {
     position: absolute;
-    top: 1.25rem;
-    right: 1.25rem;
+    top: 1.125rem;
+    right: 1.125rem;
     font-family: var(--font-heading);
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1;
     color: transparent;
@@ -1692,7 +1685,7 @@ form .btn:hover {
     align-items: center;
     gap: 1rem;
     margin-top: 1rem;
-    padding: 1.125rem 1.5rem;
+    padding: 0.875rem 1.25rem;
     border: 1px dashed var(--h-line-strong);
     border-radius: var(--h-radius);
     background: var(--h-panel);
@@ -1734,7 +1727,7 @@ form .btn:hover {
 .home-features {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.75rem 2rem;
+    gap: 1.5rem 1.75rem;
 }
 
 .home-feature {
@@ -1777,8 +1770,8 @@ form .btn:hover {
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr);
     gap: 1.5rem 2.5rem;
     align-items: start;
-    margin-top: 2.5rem;
-    padding: 1.75rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
     border: 1px solid var(--h-line);
     border-radius: var(--h-radius);
     background: var(--h-panel);
@@ -1815,128 +1808,371 @@ form .btn:hover {
 }
 
 /* --------------------------------------------------------------------------
-   14. 3D: pricing (the home.css closing panel with a form-card style offer)
+   14. 3D: pricing (round 3, 29 Oct 2026): two package cards with their size
+       slabs, the half-price first order, wallets and the Proposal Desk, the
+       terms, and a closing call to action that leads to the form
    -------------------------------------------------------------------------- */
-.price-panel {
+.plan-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: 3rem;
-    align-items: center;
-    padding: 2.5rem 3rem;
-    border: 1px solid var(--h-cta-line);
-    border-radius: 28px;
-    background: var(--h-cta-bg);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
 }
 
-/* Light theme: the kicker sits on the pale blue panel, so it takes the darker blue (round 2, P10) */
-:root:not([data-theme="dark"]) .home .price-panel p.home-kicker {
-    color: var(--h-tile-ink);
-}
-
-.price-panel__list {
-    display: grid;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-}
-
-.price-panel__list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.625rem;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.55;
-    color: var(--h-body);
-}
-
-.price-panel__list .home-icon {
-    width: 18px;
-    height: 18px;
-    margin-top: 0.2rem;
-    stroke-width: 2.5;
-    color: var(--h-green);
-}
-
-.price-offer {
+.plan-card {
     position: relative;
-    padding: 1.75rem;
-    border: 1px solid var(--h-line-strong);
-    border-radius: 24px;
-    background: var(--h-surface-strong);
-    box-shadow: var(--h-form-shadow);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1.375rem 1.5rem 1.5rem;
+    border: 1px solid var(--h-line);
+    border-radius: var(--h-radius);
+    background: var(--h-surface);
+    box-shadow: var(--h-card-shadow);
 }
 
-.price-offer::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: 1.75rem;
-    right: 1.75rem;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--h-gold);
+/* Pro: the gold top edge of the main input card */
+.plan-card--pro {
+    padding-top: calc(1.375rem - 2px);
+    border-top: 3px solid var(--h-gold);
 }
 
-.home .price-offer__from {
-    margin: 0;
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
+.plan-card__head {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--h-line);
+}
+
+.plan-card h3 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.25rem;
+    font-size: 1.125rem;
+}
+
+.plan-card__badge {
+    padding: 0.125rem 0.5rem;
+    border: 1px solid var(--h-gold-tile-line);
+    border-radius: 999px;
+    background: var(--h-gold-tile-bg);
+    font-size: 0.6875rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
     text-transform: uppercase;
+    color: var(--h-gold-ink);
+}
+
+.home .plan-card__lede {
+    margin: 0 0 0.75rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
     color: var(--h-muted);
 }
 
-.home .price-offer__price {
-    margin: 0.25rem 0 0.5rem;
+.home .plan-card__price {
+    margin: 0;
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 2rem + 1.6vw, 3.25rem);
+    font-size: 1.875rem;
     font-weight: 700;
-    letter-spacing: -0.04em;
-    line-height: 1.05;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
     color: var(--h-ink);
     font-variant-numeric: tabular-nums;
 }
 
-.home .price-offer__note {
-    max-width: 22rem;
-    margin: 0 auto 1.5rem;
-    font-size: 0.9375rem;
+.plan-card__from,
+.plan-card__gst {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0;
     color: var(--h-muted);
 }
 
-.price-offer__actions {
+.home .plan-card__time {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin: 0.5rem 0 0;
+    font-size: 0.875rem;
+    color: var(--h-body);
+}
+
+.plan-card__time .home-icon {
+    color: var(--h-sky);
+}
+
+/* Price by size: a quiet two-column list, readable at any width (no table to scroll) */
+.slab-list {
+    margin: 0 0 1.125rem;
+    overflow: hidden;
+    border: 1px solid var(--h-line);
+    border-radius: 12px;
+    background: var(--h-tile-bg);
+}
+
+.slab-list > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0.875rem;
+    border-top: 1px solid var(--h-line);
+}
+
+.slab-list > div:first-child {
+    border-top: none;
+}
+
+.slab-list dt {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--h-body);
+}
+
+.slab-list dd {
+    flex: none;
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--h-ink);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.plan-card__list,
+.bulk-card__list {
     display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.plan-card__list li,
+.bulk-card__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--h-body);
+}
+
+.plan-card__list .home-icon,
+.bulk-card__list .home-icon {
+    width: 16px;
+    height: 16px;
+    margin-top: 0.15rem;
+    stroke-width: 2.25;
+    color: var(--h-green);
+}
+
+.plan-card__list strong {
+    color: var(--h-ink);
+}
+
+.plan-card__list .plan-card__muted,
+.plan-card__list .plan-card__muted .home-icon {
+    color: var(--h-muted);
+}
+
+.plan-card__cta {
+    width: 100%;
+    margin-top: auto;
+}
+
+.price-group-title {
+    margin-top: 2rem;
+}
+
+.bulk-stack {
+    display: grid;
+    gap: 1rem;
+}
+
+.bulk-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.bulk-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem 1.5rem 1.375rem;
+    border: 1px solid var(--h-line);
+    border-radius: var(--h-radius);
+    background: var(--h-surface);
+    box-shadow: var(--h-card-shadow);
+}
+
+.bulk-card h3 {
+    margin: 0.75rem 0 0.25rem;
+    font-size: 1.0625rem;
+}
+
+.home .bulk-card > p {
+    margin: 0 0 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--h-muted);
+}
+
+.wallet-list {
+    display: grid;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.wallet-list > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    padding: 0.5625rem 0.875rem;
+    border: 1px solid var(--h-line);
+    border-radius: 12px;
+    background: var(--h-panel);
+}
+
+.wallet-list dt {
+    flex: none;
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--h-ink);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.wallet-list dd {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    text-align: right;
+    color: var(--h-body);
+}
+
+.wallet-list dd s {
+    color: var(--h-muted);
+}
+
+.wallet-list dd strong {
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    color: var(--h-ink);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Credits per project: a real table, scrolling inside its own box if it ever gets too narrow */
+.credit-table-wrap {
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+}
+
+.credit-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.credit-table caption {
+    margin-bottom: 0.375rem;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--h-muted);
+}
+
+.credit-table th,
+.credit-table td {
+    padding: 0.4375rem 0.75rem;
+    border-bottom: 1px solid var(--h-line);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.credit-table thead th {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--h-muted);
+}
+
+.credit-table thead th:not(:first-child),
+.credit-table td {
+    width: 22%;
+    text-align: center;
+}
+
+.credit-table tbody th {
+    font-weight: 500;
+    color: var(--h-body);
+}
+
+.credit-table td {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--h-ink);
+    font-variant-numeric: tabular-nums;
+}
+
+.credit-table tbody tr:last-child th,
+.credit-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.bulk-card .home-head__link {
+    margin-top: auto;
+    min-height: 32px;
+}
+
+.home-features.price-terms {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.price-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem 2rem;
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--h-cta-line);
+    border-radius: var(--h-radius);
+    background: var(--h-cta-bg);
+}
+
+.price-cta__actions {
+    display: flex;
+    flex: none;
+    flex-wrap: wrap;
     gap: 0.625rem;
 }
 
-.price-offer__actions .btn {
-    width: 100%;
-}
-
-/* Firm, polite, and quiet: a hairline row, not a warning box */
+/* Firm, polite, and quiet: the fine print beside the buttons */
 .home .price-firm {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
-    margin: 1.5rem 0 0;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--h-cta-line);
-    font-size: 0.9375rem;
+    gap: 0.625rem;
+    max-width: 44rem;
+    margin: 0;
+    font-size: 0.875rem;
     line-height: 1.6;
     color: var(--h-muted);
 }
 
 .price-firm .home-icon {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     margin-top: 0.2rem;
-    color: var(--h-gold-tile-ink);
-}
-
-.home .price-firm strong {
-    color: var(--h-ink);
+    color: var(--h-sky);
 }
 
 /* --------------------------------------------------------------------------
@@ -1963,8 +2199,8 @@ form .btn:hover {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        margin-top: 2rem;
-        padding: 1.5rem;
+        margin-top: 1.5rem;
+        padding: 1.25rem;
         border: 1px solid var(--h-line);
         border-radius: var(--h-radius);
         background: var(--h-surface);
@@ -2004,10 +2240,10 @@ form .btn:hover {
     cursor: pointer;
     list-style: none;
     position: relative;
-    padding: 1.05rem 3rem 1.05rem 1.35rem;
+    padding: 0.875rem 3rem 0.875rem 1.25rem;
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.0313rem;
+    font-size: 0.9688rem;
     line-height: 1.45;
     letter-spacing: -0.01em;
     color: var(--h-ink);
@@ -2038,7 +2274,7 @@ form .btn:hover {
 .faq-item summary::after {
     content: '';
     position: absolute;
-    right: 1.35rem;
+    right: 1.25rem;
     top: 50%;
     width: 9px;
     height: 9px;
@@ -2053,11 +2289,11 @@ form .btn:hover {
 }
 
 .faq-answer {
-    padding: 0 1.35rem 1.25rem;
+    padding: 0 1.25rem 1.125rem;
 }
 
 .home .faq-answer p {
-    font-size: 0.9688rem;
+    font-size: 0.9375rem;
     line-height: 1.7;
     margin-bottom: 0.75rem;
     color: var(--h-body);
@@ -2078,12 +2314,12 @@ form .btn:hover {
     grid-template-areas:
         "intro form"
         "more form";
-    column-gap: 3rem;
+    column-gap: 2.5rem;
     row-gap: 0.5rem;
     align-items: start;
-    padding: 2.5rem;
+    padding: 2rem;
     border: 1px solid var(--h-line);
-    border-radius: 28px;
+    border-radius: 22px;
     background: var(--h-panel);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -2148,17 +2384,17 @@ form .btn:hover {
 /* What happens next: numbered mini-cards (home.css deliverables) */
 .next-steps {
     display: grid;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
+    gap: 0.625rem;
+    margin-bottom: 1.5rem;
 }
 
 .next-steps li {
     display: flex;
     align-items: flex-start;
-    gap: 0.875rem;
-    padding: 1rem 1.125rem;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
     border: 1px solid var(--h-line);
-    border-radius: 14px;
+    border-radius: 12px;
     background: var(--h-subtle);
     box-shadow: var(--h-card-shadow);
 }
@@ -2167,9 +2403,9 @@ form .btn:hover {
     flex: none;
     display: grid;
     place-items: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
     border: 1px solid var(--h-tile-line);
     background: var(--h-tile-bg);
     font-family: var(--font-heading);
@@ -2186,7 +2422,7 @@ form .btn:hover {
 }
 
 .next-steps h4 {
-    margin: 0.375rem 0 0.25rem;
+    margin: 0.25rem 0 0.25rem;
     font-size: 0.9375rem;
     font-weight: 700;
 }
@@ -2235,9 +2471,9 @@ form .btn:hover {
 
 .home-form-card {
     position: relative;
-    padding: 1.75rem;
+    padding: 1.5rem;
     border: 1px solid var(--h-line-strong);
-    border-radius: 24px;
+    border-radius: 18px;
     background: var(--h-surface-strong);
     box-shadow: var(--h-form-shadow);
 }
@@ -2246,8 +2482,8 @@ form .btn:hover {
     content: '';
     position: absolute;
     top: -1px;
-    left: 1.75rem;
-    right: 1.75rem;
+    left: 1.5rem;
+    right: 1.5rem;
     height: 2px;
     border-radius: 2px;
     background: var(--h-gold);
@@ -2284,13 +2520,13 @@ form .btn:hover {
 .form-stack {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1rem;
 }
 
 .form-grid-2 {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
+    gap: 1rem;
 }
 
 .form-group {
@@ -2399,6 +2635,11 @@ textarea.form-control {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.5rem;
+}
+
+/* Package: four short options in one row while the form card is wide enough */
+.home-choice__options--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .home-choice__options label {
@@ -2647,7 +2888,7 @@ html:not(.js) #enquiry-form,
    17. Footer (styles.css section 15 + theme.css section 9)
    -------------------------------------------------------------------------- */
 .footer {
-    padding: 4rem 0 2rem;
+    padding: 3rem 0 2rem;
     /* The floating buttons (52px, 2rem from the bottom) never sit on the last line at the end of the page (round 2, P7) */
     padding-bottom: calc(max(2rem, env(safe-area-inset-bottom)) + 68px);
     background: var(--h-footer-bg);
@@ -2659,7 +2900,7 @@ html:not(.js) #enquiry-form,
     display: grid;
     grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
     gap: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .footer-brand p {
@@ -2727,7 +2968,7 @@ html:not(.js) #enquiry-form,
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem 1.5rem;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--h-line);
 }
 
@@ -2959,22 +3200,22 @@ html:not(.js) #enquiry-form,
 
 @media (min-width: 1600px) {
     .container {
-        max-width: 1360px;
+        max-width: 1280px;
     }
 
     .home-hero h1 {
-        font-size: 3rem;
+        font-size: 2.75rem;
     }
 
     .home p.home-hero__lead {
-        max-width: 36rem;
-        font-size: 1.1875rem;
+        max-width: 35rem;
+        font-size: 1.125rem;
     }
 }
 
 @media (max-width: 1200px) {
     .home-hero__grid {
-        gap: 3rem;
+        gap: 2.75rem;
     }
 
     .home-float--top {
@@ -3052,17 +3293,11 @@ html:not(.js) #enquiry-form,
     .viewer-extras {
         grid-template-columns: minmax(0, 1fr);
     }
-
-    .price-panel {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
-        gap: 2rem;
-        padding: 2.5rem;
-    }
 }
 
 @media (max-width: 960px) {
     .home-hero {
-        padding-top: 7.5rem;
+        padding-top: 6rem;
     }
 
     /* Stacked: copy, then the stats bar, then the footage last */
@@ -3077,7 +3312,7 @@ html:not(.js) #enquiry-form,
 
     .home-hero__visual {
         order: 1;
-        margin-top: 2.5rem;
+        margin-top: 2rem;
     }
 
     .home-hero__copy {
@@ -3100,7 +3335,7 @@ html:not(.js) #enquiry-form,
     }
 
     .home-stats {
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
 
     .need-grid {
@@ -3116,15 +3351,6 @@ html:not(.js) #enquiry-form,
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .price-panel {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .price-offer {
-        max-width: 30rem;
-        width: 100%;
-    }
-
     .footer-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 2rem 1.5rem;
@@ -3135,9 +3361,25 @@ html:not(.js) #enquiry-form,
     }
 }
 
+/* Pricing: the closing row stacks; the cards go to one column on phones and small tablets */
+@media (max-width: 900px) {
+    .price-cta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 760px) {
+    .plan-grid,
+    .bulk-grid,
+    .home-features.price-terms {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
 @media (max-width: 900px) {
     .home-section {
-        padding: 4.5rem 0;
+        padding: 3.25rem 0;
     }
 
     .home-hero + .home-section,
@@ -3146,7 +3388,7 @@ html:not(.js) #enquiry-form,
     }
 
     .home-proposal {
-        padding: 2rem;
+        padding: 1.5rem;
     }
 
     .home-head {
@@ -3173,7 +3415,7 @@ html:not(.js) #enquiry-form,
 
 @media (max-width: 640px) {
     .home-section {
-        padding: 3.5rem 0;
+        padding: 2.75rem 0;
     }
 
     .home-hero + .home-section,
@@ -3182,30 +3424,31 @@ html:not(.js) #enquiry-form,
     }
 
     .home-section--last {
-        padding-bottom: 4rem;
+        padding-bottom: 3rem;
     }
 
     .home h2 {
-        font-size: 1.5rem;
+        font-size: 1.375rem;
     }
 
     .home-head {
-        margin-bottom: 1.75rem;
+        margin-bottom: 1.25rem;
     }
 
     /* Hero */
     .home-hero {
-        padding: 6.5rem 0 2.5rem;
+        padding: 5.25rem 0 2rem;
     }
 
     .home p.home-eyebrow {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1rem;
         font-size: 0.75rem;
     }
 
     .home p.home-hero__lead {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
     }
 
     .home-hero__actions {
@@ -3217,21 +3460,21 @@ html:not(.js) #enquiry-form,
     }
 
     .home-hero__assurances {
-        gap: 0.5rem 1.25rem;
-        margin-top: 1.25rem;
+        gap: 0.375rem 1.125rem;
+        margin-top: 1rem;
     }
 
     .home-hero__assurances li {
-        font-size: 0.875rem;
+        font-size: 0.8125rem;
     }
 
     .home-hero__frame {
-        border-radius: 20px;
+        border-radius: 18px;
         aspect-ratio: 4 / 3;
     }
 
     .home-hero__frame video {
-        border-radius: 19px;
+        border-radius: 17px;
     }
 
     .home-float--top {
@@ -3267,16 +3510,16 @@ html:not(.js) #enquiry-form,
     }
 
     .home-stats {
-        margin-top: 2rem;
-        border-radius: 16px;
+        margin-top: 1.5rem;
+        border-radius: 14px;
     }
 
     .home-stat {
-        padding: 1rem 1.125rem;
+        padding: 0.75rem 1rem;
     }
 
     .home-stat__num {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .home-stat span {
@@ -3292,15 +3535,15 @@ html:not(.js) #enquiry-form,
     }
 
     .demo-card {
-        border-radius: 20px;
+        border-radius: 16px;
     }
 
     .demo-card__body {
-        padding: 1.25rem 1.25rem 1.5rem;
+        padding: 1rem 1rem 1.25rem;
     }
 
     .demo-card h3 {
-        font-size: 1.125rem;
+        font-size: 1.0625rem;
     }
 
     .demo-card__facts > div {
@@ -3317,7 +3560,7 @@ html:not(.js) #enquiry-form,
 
     .home-band {
         align-items: flex-start;
-        padding: 1.125rem 1.25rem;
+        padding: 0.875rem 1rem;
     }
 
     /* Process: icon beside the text, one compact row per step */
@@ -3333,7 +3576,7 @@ html:not(.js) #enquiry-form,
             "tile text";
         column-gap: 0.875rem;
         align-items: start;
-        padding: 1.125rem 3.5rem 1.125rem 1.125rem;
+        padding: 1rem 3.25rem 1rem 1rem;
         border-left: none;
     }
 
@@ -3373,7 +3616,7 @@ html:not(.js) #enquiry-form,
         gap: 0;
         overflow: hidden;
         border: 1px solid var(--h-line);
-        border-radius: 20px;
+        border-radius: var(--h-radius);
         background: var(--h-surface);
         box-shadow: var(--h-card-shadow);
     }
@@ -3382,7 +3625,7 @@ html:not(.js) #enquiry-form,
         display: grid;
         grid-template-columns: auto minmax(0, 1fr);
         column-gap: 0.875rem;
-        padding: 1.125rem 3.25rem 1.125rem 1.125rem;
+        padding: 1rem 3.25rem 1rem 1rem;
         border: 0;
         border-radius: 0;
         background: none;
@@ -3420,7 +3663,7 @@ html:not(.js) #enquiry-form,
 
     .need-card--main {
         grid-column: auto;
-        padding: 1.125rem 3.25rem 1.125rem 1.125rem;
+        padding: 1rem 3.25rem 1rem 1rem;
         border-top: 0;
     }
 
@@ -3466,34 +3709,57 @@ html:not(.js) #enquiry-form,
     }
 
     /* Pricing */
-    .price-panel {
-        padding: 2rem 1.25rem 1.25rem;
-        border-radius: 24px;
-        gap: 1.75rem;
+    .plan-card,
+    .bulk-card {
+        padding: 1.125rem 1rem 1.25rem;
     }
 
-    .price-offer {
-        padding: 1.5rem 1.25rem;
-        border-radius: 20px;
+    .plan-card--pro {
+        padding-top: calc(1.125rem - 2px);
     }
 
-    .price-offer::before {
-        left: 1.25rem;
-        right: 1.25rem;
+    .home .plan-card__price {
+        font-size: 1.625rem;
+    }
+
+    .slab-list > div {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .wallet-list > div {
+        flex-direction: column;
+        gap: 0.125rem;
+    }
+
+    .wallet-list dd {
+        text-align: left;
+    }
+
+    .price-cta {
+        padding: 1.125rem 1rem;
+    }
+
+    .price-cta__actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .price-cta__actions .btn {
+        width: 100%;
     }
 
     /* FAQ */
     .faq-item summary {
-        padding: 1rem 2.75rem 1rem 1.125rem;
-        font-size: 1rem;
+        padding: 0.875rem 2.75rem 0.875rem 1rem;
+        font-size: 0.9375rem;
     }
 
     .faq-item summary::after {
-        right: 1.125rem;
+        right: 1rem;
     }
 
     .faq-answer {
-        padding: 0 1.125rem 1.125rem;
+        padding: 0 1rem 1rem;
     }
 
     /* Enquiry: drop the outer panel so the form card is the only box */
@@ -3525,13 +3791,13 @@ html:not(.js) #enquiry-form,
     }
 
     .home-form-card {
-        padding: 1.5rem 1.25rem;
-        border-radius: 20px;
+        padding: 1.25rem 1rem;
+        border-radius: 16px;
     }
 
     .home-form-card::before {
-        left: 1.25rem;
-        right: 1.25rem;
+        left: 1rem;
+        right: 1rem;
     }
 
     /* Footer */
@@ -3623,26 +3889,6 @@ html:not(.js) #enquiry-form,
         margin-right: auto;
     }
 
-    .price-panel__copy {
-        text-align: center;
-    }
-
-    .home .price-firm {
-        text-align: left;
-    }
-
-    .price-panel__list {
-        width: fit-content;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-    }
-
-    .price-offer {
-        margin: 0 auto;
-    }
-
     .form-control {
         font-size: 1rem;
     }
@@ -3671,7 +3917,7 @@ html:not(.js) #enquiry-form,
     /* The main site's phone padding for large buttons */
     .btn-lg,
     .home-section .btn-lg {
-        padding: 0.875rem 1.5rem;
+        padding: 0.75rem 1.25rem;
     }
 
     html {
@@ -3682,11 +3928,11 @@ html:not(.js) #enquiry-form,
 
 @media (max-width: 380px) {
     .home-hero h1 {
-        font-size: 1.875rem;
+        font-size: 1.625rem;
     }
 
     .home h2 {
-        font-size: 1.5rem;
+        font-size: 1.3125rem;
     }
 
     .home-stat {
@@ -3698,36 +3944,10 @@ html:not(.js) #enquiry-form,
     }
 }
 
-/* Phones: "Get your price on WhatsApp" stays on one line from 360 px
-   (balanced over two lines below that) */
-@media (max-width: 420px) {
-    .price-offer {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .price-offer::before {
-        left: 1rem;
-        right: 1rem;
-    }
-
-    .price-offer__actions .btn {
-        padding-left: 0.875rem;
-        padding-right: 0.875rem;
-        text-wrap: balance;
-    }
-}
-
-@media (max-width: 374px) {
-    .price-offer__actions .btn {
-        font-size: 0.875rem;
-    }
-}
-
 /* The smallest phones: "Every EPC sends a PDF." still fits on one line */
 @media (max-width: 340px) {
     .home-hero h1 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 }
 
